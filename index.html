@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abdul Saleem B — Design Director & UX Leader</title>
+<meta name="description" content="Abdul Saleem B — Design Director with 20 years leading enterprise UX teams. Specialist in AI-driven maritime platforms, design systems, and scaling design organisations."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — EXECUTIVE REDESIGN
+   Abdul Saleem B Portfolio v3
+═══════════════════════════════════════════════ */
+:root {
+  /* Dark palette */
+  --bg:          #070C18;
+  --surface:     #0C1220;
+  --surface-2:   #101828;
+  --border:      rgba(255,255,255,0.07);
+  --border-mid:  rgba(255,255,255,0.12);
+
+  /* Brand */
+  --blue:        #1557FF;
+  --blue-lt:     #4A82FF;
+  --blue-glow:   rgba(21,87,255,0.15);
+  --gold:        #C9A96E;
+  --gold-lt:     #D9BF8C;
+
+  /* Text */
+  --text-1:      #F7F8FC;
+  --text-2:      #9AA3B5;
+  --text-3:      #5A647A;
+
+  /* Type */
+  --display:     'DM Serif Display', serif;
+  --sans:        'DM Sans', sans-serif;
+  --mono:        'Inter', sans-serif;
+
+  /* Misc */
+  --ease:        cubic-bezier(0.4,0,0.2,1);
+  --r:           14px;
+  --r-lg:        22px;
+}
+[data-theme="light"] {
+  --bg:        #F5F6FA;
+  --surface:   #FFFFFF;
+  --surface-2: #EEF0F7;
+  --border:    rgba(0,0,0,0.07);
+  --border-mid:rgba(0,0,0,0.12);
+  --text-1:    #0A0F1E;
+  --text-2:    #4A5568;
+  --text-3:    #8892A4;
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--bg);color:var(--text-1);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--blue);color:#fff}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
+
+/* ── PROGRESS BAR ── */
+#progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--gold));z-index:999;transition:width .1s linear;width:0}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1160px;margin:0 auto;padding:0 48px}
+section{padding:100px 0}
+
+/* ── TYPE SCALE ── */
+.serif-xl{font-family:var(--display);font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.08;letter-spacing:-0.01em}
+.serif-lg{font-family:var(--display);font-size:clamp(2rem,3.8vw,3.4rem);line-height:1.12}
+.serif-md{font-family:var(--display);font-size:clamp(1.5rem,2.4vw,2.2rem);line-height:1.2}
+.eyebrow{font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:16px}
+.body-lg{font-size:1.05rem;line-height:1.8;color:var(--text-2)}
+.body-md{font-size:.9rem;line-height:1.75;color:var(--text-2)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:all .35s var(--ease)}
+nav.scrolled{background:rgba(7,12,24,.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--border);padding:14px 0}
+[data-theme="light"] nav.scrolled{background:rgba(245,246,250,.95)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1160px;margin:0 auto;padding:0 48px}
+.nav-logo{font-family:var(--display);font-size:1.05rem;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo-mark{width:30px;height:30px;border-radius:7px;background:linear-gradient(135deg,var(--blue) 0%,var(--blue-lt) 100%);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.72rem;font-weight:700;color:#fff;flex-shrink:0;line-height:1}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.03em;opacity:.6;transition:opacity .25s;white-space:nowrap}
+.nav-links a:hover{opacity:1}
+.nav-right{display:flex;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 22px;border-radius:40px;font-family:var(--sans);font-size:.82rem;font-weight:500;cursor:pointer;transition:all .25s;border:none;white-space:nowrap;line-height:1}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue-lt);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,87,255,.35)}
+.btn-outline{background:transparent;color:var(--text-1);border:1px solid var(--border-mid)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.theme-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border-mid);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-1);font-size:.9rem;transition:all .25s;flex-shrink:0}
+.theme-btn:hover{border-color:var(--blue);background:var(--blue-glow)}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;border:none;background:none;padding:4px;width:32px;height:32px}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text-1);border-radius:1px;transition:all .3s}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+#hero{
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  padding-top:88px;   /* nav clearance */
+  padding-bottom:64px;
+  position:relative;
+  overflow:hidden;
+}
+/* ── HERO CANVAS (particle + effects layer) ── */
+#hero-canvas{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+/* ── DEEP GLOW ORBS ── */
+.hero-orb{
+  position:absolute;border-radius:50%;pointer-events:none;
+  will-change:transform,opacity;
+}
+.hero-orb-1{
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(21,87,255,.14) 0%,rgba(21,87,255,.04) 40%,transparent 70%);
+  filter:blur(60px);
+  top:-200px;right:-160px;
+  animation:orbFloat1 16s ease-in-out infinite;
+}
+.hero-orb-2{
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(201,169,110,.09) 0%,rgba(201,169,110,.03) 45%,transparent 70%);
+  filter:blur(50px);
+  bottom:-100px;left:-60px;
+  animation:orbFloat2 20s ease-in-out infinite;
+}
+.hero-orb-3{
+  width:360px;height:360px;
+  background:radial-gradient(circle,rgba(21,87,255,.08) 0%,transparent 70%);
+  filter:blur(40px);
+  top:30%;left:28%;
+  animation:orbFloat3 24s ease-in-out infinite;
+}
+.hero-orb-4{
+  width:240px;height:240px;
+  background:radial-gradient(circle,rgba(201,169,110,.06) 0%,transparent 70%);
+  filter:blur(36px);
+  top:15%;right:30%;
+  animation:orbFloat4 19s ease-in-out infinite;
+}
+@keyframes orbFloat1{
+  0%,100%{transform:translate(0,0) scale(1);opacity:1}
+  25%{transform:translate(-50px,35px) scale(1.1);opacity:.75}
+  55%{transform:translate(30px,-25px) scale(.93);opacity:.9}
+  80%{transform:translate(-20px,50px) scale(1.05);opacity:.8}
+}
+@keyframes orbFloat2{
+  0%,100%{transform:translate(0,0) scale(1);opacity:.85}
+  30%{transform:translate(45px,-50px) scale(1.15);opacity:.6}
+  65%{transform:translate(-30px,25px) scale(.9);opacity:.95}
+}
+@keyframes orbFloat3{
+  0%,100%{transform:translate(0,0) scale(1);opacity:.55}
+  40%{transform:translate(-40px,40px) scale(1.25);opacity:.3}
+  75%{transform:translate(25px,-20px) scale(.85);opacity:.6}
+}
+@keyframes orbFloat4{
+  0%,100%{transform:translate(0,0) scale(1);opacity:.5}
+  50%{transform:translate(35px,30px) scale(1.2);opacity:.25}
+}
+/* ── SCAN LINE ── */
+.hero-scan{
+  position:absolute;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(21,87,255,.35) 30%,rgba(201,169,110,.2) 50%,rgba(21,87,255,.35) 70%,transparent);
+  pointer-events:none;z-index:1;
+  animation:scanSweep 8s linear infinite;
+  opacity:0;
+}
+@keyframes scanSweep{
+  0%{top:-2px;opacity:0}
+  3%{opacity:.8}
+  97%{opacity:.4}
+  100%{top:100%;opacity:0}
+}
+/* ── GRID OVERLAY ── */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse at 58% 38%,black 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+  animation:gridPulse 12s ease-in-out infinite;
+}
+@keyframes gridPulse{
+  0%,100%{opacity:1}
+  50%{opacity:.5}
+}
+
+/* Hero wrap must sit above all bg layers */
+#hero > .wrap{position:relative;z-index:2}
+
+/* Hero two-column: text + ticker */
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr 390px;
+  gap:60px;
+  align-items:center;
+  position:relative;
+  z-index:1;
+  width:100%;
+}
+.hero-text{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(21,87,255,.1);
+  border:1px solid rgba(21,87,255,.25);
+  padding:6px 16px;
+  border-radius:40px;
+  font-size:.72rem;
+  font-weight:600;
+  color:var(--blue-lt);
+  letter-spacing:.06em;
+  margin-bottom:24px;
+  line-height:1;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:blink 2s infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero-h1{margin-bottom:20px;width:100%}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+
+.hero-sub{
+  max-width:500px;
+  margin-bottom:36px;
+}
+.hero-ctas{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:48px;
+  align-items:center;
+}
+.btn-lg{padding:13px 32px;font-size:.9rem}
+
+.hero-stats{
+  display:flex;
+  gap:0;
+  padding-top:32px;
+  border-top:1px solid var(--border);
+  width:100%;
+}
+.hero-stat-item{
+  padding-right:36px;
+  margin-right:36px;
+  border-right:1px solid var(--border);
+}
+.hero-stat-item:last-child{padding-right:0;margin-right:0;border-right:none}
+.stat-num{font-family:var(--display);font-size:1.9rem;line-height:1;letter-spacing:-.02em;margin-bottom:4px}
+.stat-num sup{font-size:.95rem;font-style:normal;vertical-align:super}
+.stat-label{font-size:.68rem;color:var(--text-2);font-family:var(--mono);letter-spacing:.04em}
+
+/* ── TICKER PANEL ── preserved design, fixed height & alignment */
+.ticker-panel{
+  position:relative;
+  background:rgba(12,18,32,.92);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid var(--border-mid);
+  border-radius:var(--r-lg);
+  height:540px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  flex-shrink:0;
+}
+.ticker-panel::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:52px;
+  background:linear-gradient(to bottom,rgba(12,18,32,1),transparent);
+  z-index:2;pointer-events:none;
+}
+.ticker-panel::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:52px;
+  background:linear-gradient(to top,rgba(12,18,32,1),transparent);
+  z-index:2;pointer-events:none;
+}
+.ticker-hd{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 18px 13px;
+  font-family:var(--mono);font-size:.63rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-3);
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+  position:relative;z-index:5;
+  background:rgba(12,18,32,.98);
+}
+.ticker-live{display:flex;align-items:center;gap:6px;color:var(--blue-lt);font-size:.63rem}
+.ticker-live-dot{width:5px;height:5px;border-radius:50%;background:#22c55e;animation:blink 1.5s infinite;flex-shrink:0}
+.ticker-track{
+  display:flex;flex-direction:column;gap:9px;
+  padding:12px 12px 0;
+  animation:scrollUp 24s linear infinite;
+  flex-shrink:0;
+}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes scrollUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.ticker-row{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 14px;
+  flex-shrink:0;
+  gap:12px;
+}
+.ticker-row-label{font-size:.76rem;font-weight:500;white-space:nowrap}
+.ticker-row-val{font-size:.7rem;font-weight:600;color:var(--blue-lt);background:rgba(21,87,255,.12);padding:3px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+
+/* ══════════════════════════════════════════
+   EXECUTIVE SUMMARY
+══════════════════════════════════════════ */
+#about{background:var(--surface);border-top:1px solid var(--border)}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.about-text .serif-lg{margin-bottom:20px}
+.about-text p{margin-top:20px}
+.about-metrics{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3px;
+  border-radius:var(--r);
+  overflow:hidden;
+}
+.metric-block{
+  background:var(--bg);
+  padding:32px 28px;
+  transition:background .25s;
+}
+.metric-block:hover{background:var(--surface-2)}
+.metric-big{
+  font-family:var(--display);
+  font-size:2.6rem;
+  line-height:1;
+  letter-spacing:-.03em;
+  margin-bottom:6px;
+  color:var(--text-1);
+}
+.metric-big span{color:var(--blue)}
+.metric-tag{font-size:.7rem;color:var(--text-2);font-family:var(--mono);letter-spacing:.04em;line-height:1.5}
+
+/* ══════════════════════════════════════════
+   LEADERSHIP NUMBERS
+══════════════════════════════════════════ */
+section#numbers{
+  border-top:1px solid var(--border);
+  padding:60px 0 100px;
+}
+.numbers-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+}
+.number-cell{
+  padding:48px 36px;
+  border-right:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+  transition:background .3s;
+}
+.number-cell:last-child{border-right:none}
+.number-cell:hover{background:var(--surface-2)}
+.number-cell::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);
+}
+.number-cell:hover::before{transform:scaleX(1)}
+.nc-num{
+  font-family:var(--display);
+  font-size:3.2rem;
+  line-height:1;
+  letter-spacing:-.03em;
+  margin-bottom:10px;
+}
+.nc-label{font-size:.73rem;color:var(--text-2);font-family:var(--mono);letter-spacing:.04em;line-height:1.5}
+
+/* ══════════════════════════════════════════
+   CASE STUDIES
+══════════════════════════════════════════ */
+#work{border-top:1px solid var(--border)}
+.work-intro{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:end;
+  margin-bottom:56px;
+}
+.work-intro-meta{display:flex;flex-direction:column;justify-content:flex-end}
+
+/* Case Study Card */
+.cs{margin-bottom:20px}
+.cs:last-child{margin-bottom:0}
+.cs-card{
+  background:var(--surface);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  border:1px solid var(--border);
+  transition:border-color .3s;
+}
+.cs-card:hover{border-color:rgba(21,87,255,.3)}
+
+/* Tab strip */
+.cs-tabs{
+  display:flex;
+  border-bottom:1px solid var(--border);
+  background:var(--surface);
+}
+.cs-tab{
+  padding:15px 26px;
+  font-size:.7rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-family:var(--mono);
+  color:var(--text-3);
+  cursor:pointer;
+  border:none;
+  border-bottom:2px solid transparent;
+  background:none;
+  transition:all .25s;
+  position:relative;
+  bottom:-1px;
+  line-height:1;
+}
+.cs-tab.active{color:var(--text-1);border-bottom-color:var(--blue)}
+.cs-tab:hover:not(.active){color:var(--text-2)}
+
+/* Story panels */
+.cs-panels{display:none}
+.cs-panels.active{display:block}
+
+/* Overview panel — 2 column split */
+.cs-overview{
+  display:grid;
+  grid-template-columns:1fr 1px 1.1fr;
+  align-items:stretch;
+}
+.cs-ov-left{
+  padding:44px 44px 44px 44px;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.cs-divider{
+  background:var(--border);
+  width:1px;
+  align-self:stretch;
+}
+.cs-ov-right{
+  padding:44px;
+  display:flex;
+  flex-direction:column;
+}
+
+.cs-kicker{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+.cs-type{
+  font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;background:var(--blue-glow);border:1px solid rgba(21,87,255,.2);
+  color:var(--blue-lt);padding:5px 13px;border-radius:40px;line-height:1;
+}
+.cs-year{font-family:var(--mono);font-size:.62rem;color:var(--text-3);letter-spacing:.08em}
+.cs-live-link{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.08em;
+  color:var(--blue-lt);
+  background:rgba(21,87,255,.08);
+  border:1px solid rgba(21,87,255,.2);
+  padding:4px 11px;border-radius:40px;
+  transition:all .2s;
+  white-space:nowrap;
+  text-decoration:none;
+  margin-left:auto;
+}
+.cs-live-link:hover{background:rgba(21,87,255,.18);border-color:rgba(21,87,255,.5);transform:translateY(-1px)}
+.cs-title{
+  font-family:var(--display);
+  font-size:clamp(1.35rem,2vw,1.85rem);
+  line-height:1.25;
+  margin-bottom:18px;
+}
+.cs-challenge{
+  font-size:.87rem;line-height:1.75;color:var(--text-2);
+  padding:16px 20px;
+  background:var(--bg);
+  border-left:2px solid var(--gold);
+  border-radius:0 10px 10px 0;
+  margin-bottom:24px;
+}
+/* push meta row to bottom of left column */
+.cs-ov-left .cs-meta-row{margin-top:auto}
+.cs-meta-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  overflow:hidden;
+}
+.cs-meta-cell{
+  padding:14px 16px;
+  border-right:1px solid var(--border);
+}
+.cs-meta-cell:last-child{border-right:none}
+.cs-meta-cell .label{
+  font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);font-family:var(--mono);margin-bottom:5px;display:block;
+}
+.cs-meta-cell .val{font-size:.82rem;font-weight:500;line-height:1.3;display:block}
+
+/* Contributions */
+.cs-section-label{
+  font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);font-family:var(--mono);margin-bottom:16px;display:block;
+}
+.cs-contribs{
+  display:flex;flex-direction:column;gap:16px;
+  margin-bottom:28px;
+}
+.cs-contrib{display:flex;gap:14px;align-items:flex-start}
+.cs-contrib-num{
+  width:24px;height:24px;min-width:24px;
+  border-radius:50%;
+  background:var(--blue-glow);border:1px solid rgba(21,87,255,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;font-weight:700;color:var(--blue-lt);
+  flex-shrink:0;font-family:var(--mono);
+  line-height:1;margin-top:1px;
+}
+.cs-contrib p{font-size:.84rem;color:var(--text-2);line-height:1.7;margin:0}
+.cs-contrib strong{color:var(--text-1);font-weight:600}
+
+/* Impact metrics */
+.cs-impacts{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:3px;
+  margin-top:auto;
+  border-radius:var(--r);
+  overflow:hidden;
+}
+.cs-impact{
+  background:var(--bg);
+  padding:20px 14px;
+  text-align:center;
+}
+.cs-impact-num{
+  font-family:var(--display);
+  font-size:1.75rem;
+  letter-spacing:-.03em;
+  color:var(--blue-lt);
+  line-height:1;
+  margin-bottom:8px;
+  display:block;
+}
+.cs-impact-label{font-size:.67rem;color:var(--text-2);font-family:var(--mono);line-height:1.5;display:block}
+
+/* Screens panel */
+.cs-screens{padding:36px 44px 44px}
+.cs-screens-label{margin-bottom:20px}
+.screens-grid{display:grid;gap:10px}
+.screens-grid.g3{grid-template-columns:1.55fr 1fr 1fr}
+.screens-grid.g4{grid-template-columns:repeat(4,1fr)}
+.screen-frame{
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--bg);
+  border:1px solid var(--border);
+  position:relative;
+}
+/* ensure SVG fills frame correctly */
+.screen-frame svg{display:block;width:100%;height:auto}
+.screen-frame.tall{grid-row:span 2}
+.screen-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:10px 14px;
+  background:linear-gradient(to top,rgba(7,12,24,.92) 60%,transparent);
+  font-size:.65rem;color:var(--text-2);font-family:var(--mono);
+  line-height:1.4;
+}
+.mock-svg{width:100%;height:auto;display:block}
+
+/* ══════════════════════════════════════════
+   CAREER TIMELINE — compact
+══════════════════════════════════════════ */
+#journey{background:var(--surface);border-top:1px solid var(--border)}
+.journey-grid{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:80px;
+  align-items:start;
+}
+.journey-sidebar{position:sticky;top:100px}
+.journey-sidebar .eyebrow{margin-bottom:14px}
+.journey-sidebar .serif-lg{line-height:1.15}
+
+/* Timeline */
+.tl{
+  position:relative;
+  padding-left:32px;
+  padding-top:4px;
+}
+.tl::before{
+  content:'';
+  position:absolute;left:0;top:10px;bottom:10px;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--blue) 6%,var(--blue) 94%,transparent);
+}
+.tl-item{
+  position:relative;
+  padding-bottom:32px;
+}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{
+  position:absolute;
+  left:-38px;top:4px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--border-mid);
+  transition:border-color .25s,background .25s;
+}
+.tl-item.now .tl-dot{
+  background:var(--blue);
+  border-color:var(--blue);
+  animation:blink 2s infinite;
+  box-shadow:0 0 0 4px rgba(21,87,255,.18);
+}
+.tl-item:hover .tl-dot{border-color:var(--blue-lt);background:var(--blue-lt)}
+.tl-period{
+  font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);font-family:var(--mono);margin-bottom:5px;display:block;
+}
+.tl-role{font-weight:700;font-size:.96rem;margin-bottom:3px;line-height:1.3}
+.tl-org{font-size:.82rem;color:var(--text-2);line-height:1.4}
+
+/* ══════════════════════════════════════════
+   TOOLS — simplified
+══════════════════════════════════════════ */
+#tools{border-top:1px solid var(--border)}
+.tools-header{margin-bottom:52px}
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:2px;
+  border-radius:var(--r);
+  overflow:hidden;
+}
+.tool-cell{
+  background:var(--surface);
+  padding:28px 20px;
+  text-align:center;
+  transition:background .25s;
+  cursor:default;
+}
+.tool-cell:hover{background:var(--surface-2)}
+.tool-icon{font-size:1.5rem;margin-bottom:10px;line-height:1;display:block}
+.tool-name{font-size:.78rem;font-weight:600;line-height:1.2;display:block}
+.tool-cat{font-size:.63rem;color:var(--text-3);font-family:var(--mono);margin-top:4px;line-height:1.3;display:block}
+
+/* ══════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════ */
+section#contact{
+  text-align:center;
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:120px 0;
+}
+.contact-wrap{max-width:600px;margin:0 auto}
+.contact-wrap .eyebrow{display:block;text-align:center}
+.contact-wrap .serif-lg{margin-bottom:18px}
+.contact-wrap .body-lg{margin-bottom:44px}
+.contact-ctas{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
+  margin-bottom:48px;
+  align-items:center;
+}
+.contact-links{
+  display:flex;justify-content:center;gap:32px;flex-wrap:wrap;
+  align-items:center;
+}
+.c-link{
+  font-size:.84rem;color:var(--text-2);
+  display:flex;align-items:center;gap:8px;
+  transition:color .25s;line-height:1;
+}
+.c-link:hover{color:var(--text-1)}
+.c-link-icon{font-size:1rem;line-height:1}
+
+/* ── FOOTER ── */
+footer{padding:26px 0;border-top:1px solid var(--border)}
+.footer-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1160px;margin:0 auto;padding:0 48px;
+}
+.footer-copy,.footer-made{font-size:.72rem;color:var(--text-3);font-family:var(--mono)}
+.footer-made span{color:var(--gold)}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+══════════════════════════════════════════ */
+@media(max-width:1100px){
+  .wrap{padding:0 32px}
+  .nav-inner{padding:0 32px}
+  .footer-inner{padding:0 32px}
+  .hero-inner{grid-template-columns:1fr 340px;gap:44px}
+  .about-grid{gap:56px}
+  .numbers-row{grid-template-columns:1fr 1fr}
+  .number-cell{
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .number-cell:nth-child(2n){border-right:none}
+  .number-cell:nth-child(3),.number-cell:nth-child(4){border-bottom:none}
+  .journey-grid{grid-template-columns:220px 1fr;gap:56px}
+  .tools-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr 300px;gap:36px}
+  .cs-overview{grid-template-columns:1fr}
+  .cs-divider{display:none}
+  .cs-ov-left,.cs-ov-right{padding:36px}
+  .cs-ov-left .cs-meta-row{margin-top:24px}
+  .work-intro{grid-template-columns:1fr;gap:24px}
+  .journey-grid{grid-template-columns:1fr;gap:40px}
+  .journey-sidebar{position:static}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .tools-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  section{padding:72px 0}
+  .wrap{padding:0 24px}
+  .nav-inner{padding:0 24px}
+  .footer-inner{padding:0 24px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr}
+  .ticker-panel{display:none}
+  .hero-stats{gap:0;flex-wrap:wrap}
+  .hero-stat-item{
+    padding-right:24px;
+    margin-right:24px;
+    margin-bottom:0;
+  }
+  .about-metrics{grid-template-columns:1fr 1fr}
+  .metric-block{padding:24px 20px}
+  .cs-ov-left,.cs-ov-right{padding:28px}
+  .cs-impacts{grid-template-columns:repeat(3,1fr)}
+  .screens-grid.g3{grid-template-columns:1fr 1fr}
+  .screens-grid.g4{grid-template-columns:1fr 1fr}
+  .screen-frame.tall{grid-row:auto}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+  .numbers-row{grid-template-columns:1fr 1fr}
+  .contact-ctas{gap:10px}
+  .footer-inner{flex-direction:column;gap:10px;text-align:center}
+}
+@media(max-width:520px){
+  .wrap{padding:0 20px}
+  .nav-inner{padding:0 20px}
+  .hero-stats{flex-direction:row;flex-wrap:wrap;gap:0}
+  .hero-stat-item{
+    width:50%;
+    padding-right:0;
+    margin-right:0;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+    padding-bottom:16px;
+    margin-bottom:16px;
+  }
+  .hero-stat-item:nth-child(3),.hero-stat-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .numbers-row{grid-template-columns:1fr 1fr}
+  .number-cell:nth-child(odd){border-right:1px solid var(--border)}
+  .number-cell:nth-child(even){border-right:none}
+  .number-cell:nth-child(3),.number-cell:nth-child(4){border-bottom:none}
+  .cs-meta-row{grid-template-columns:1fr}
+  .cs-meta-cell{border-right:none;border-bottom:1px solid var(--border)}
+  .cs-meta-cell:last-child{border-bottom:none}
+  .cs-impacts{grid-template-columns:1fr}
+  .screens-grid.g3,.screens-grid.g4{grid-template-columns:1fr}
+  .screen-frame.tall{grid-row:auto}
+  .about-metrics{grid-template-columns:1fr 1fr}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-links{gap:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ticker-track{animation:none}
+  .reveal{opacity:1;transform:none}
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="logo-mark">AS</div>
+      Abdul Saleem B
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#journey">Journey</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="mailto:saleem.abd@gmail.com" class="btn btn-outline">Get in Touch</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀️</button>
+      <button class="hamburger" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-orb hero-orb-4"></div>
+  <div class="hero-scan"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge reveal">
+          <span class="badge-dot"></span>
+          Open to Senior Design Leadership Roles
+        </div>
+        <h1 class="serif-xl hero-h1 reveal d1">
+          Design Leader.<br/><em>20 Years.</em><br/>Enterprise Scale.
+        </h1>
+        <p class="body-lg hero-sub reveal d2">
+          I build design organisations, AI-driven platforms, and enterprise systems that perform at maritime scale — 5,100+ vessels, 35 designers, one unified vision.
+        </p>
+        <div class="hero-ctas reveal d3">
+          <a href="#work" class="btn btn-primary btn-lg">View Case Studies</a>
+          <a href="mailto:saleem.abd@gmail.com" class="btn btn-outline btn-lg">Let's Talk</a>
+          <a href="#" class="btn btn-outline btn-lg" onclick="alert('Replace with your resume PDF')">Resume ↓</a>
+        </div>
+        <div class="hero-stats reveal d4">
+          <div class="hero-stat-item">
+            <div class="stat-num">20<sup>+</sup></div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="stat-num">35</div>
+            <div class="stat-label">Designers Led</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="stat-num">5.1K<sup>+</sup></div>
+            <div class="stat-label">Vessels Impacted</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="stat-num">15<sup>+</sup></div>
+            <div class="stat-label">Certifications</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TICKER PANEL — original design preserved -->
+      <div class="ticker-panel reveal d2">
+        <div class="ticker-hd">
+          <span>Core Competencies</span>
+          <span class="ticker-live"><span class="ticker-live-dot"></span>Design Leadership</span>
+        </div>
+        <div class="ticker-track" id="tickerTrack"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ABOUT ════════════ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow">Executive Summary</span>
+        <h2 class="serif-lg">Strategy, craft, and 20 years of shipping products that matter.</h2>
+        <p class="body-lg" style="margin-top:24px">I lead design at the intersection of enterprise complexity and human simplicity. At <a href="https://www.mariapps.com/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(201,169,110,.4)">MariApps Marine Solutions</a>, I've built a 35-person design organisation, established governance frameworks, and shaped PALng — an AI-driven maritime platform now trusted by the world's leading vessel operators.</p>
+      </div>
+      <div class="about-metrics reveal d2">
+        <div class="metric-block">
+          <div class="metric-big"><span>35</span></div>
+          <div class="metric-tag">Designers currently led</div>
+        </div>
+        <div class="metric-block">
+          <div class="metric-big"><span>200+</span></div>
+          <div class="metric-tag">Design system components</div>
+        </div>
+        <div class="metric-block">
+          <div class="metric-big"><span>18+</span></div>
+          <div class="metric-tag">Products delivered</div>
+        </div>
+        <div class="metric-block">
+          <div class="metric-big"><span>7</span></div>
+          <div class="metric-tag">Organisations across career</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ NUMBERS ════════════ -->
+<section id="numbers" style="padding:60px 0 120px">
+  <div class="wrap">
+    <div class="numbers-row reveal">
+      <div class="number-cell">
+        <div class="nc-num">20<sup style="font-size:1.6rem">+</sup></div>
+        <div class="nc-label">Years of Professional Practice</div>
+      </div>
+      <div class="number-cell">
+        <div class="nc-num">5,100<sup style="font-size:1.6rem">+</sup></div>
+        <div class="nc-label">Vessels Using PALng</div>
+      </div>
+      <div class="number-cell">
+        <div class="nc-num">15</div>
+        <div class="nc-label">Platform Modules Designed</div>
+      </div>
+      <div class="number-cell">
+        <div class="nc-num" style="color:var(--gold)">AI</div>
+        <div class="nc-label">Maritime UX Domain Expert</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CASE STUDIES ════════════ -->
+<section id="work">
+  <div class="wrap">
+    <div class="work-intro reveal">
+      <div>
+        <span class="eyebrow">Featured Case Studies</span>
+        <h2 class="serif-lg" style="max-width:480px">Three high-stakes problems. Real outcomes.</h2>
+      </div>
+      <div class="work-intro-meta">
+        <p class="body-md">Each case study follows the same discipline I bring to every project: understand the problem deeply, design with precision, measure what matters.</p>
+      </div>
+    </div>
+
+    <!-- ─── CASE STUDY 1: PALng ─── -->
+    <div class="cs reveal">
+      <div class="cs-card">
+        <div class="cs-tabs" role="tablist">
+          <button class="cs-tab active" role="tab" data-cs="cs1" data-panel="overview">Overview</button>
+          <button class="cs-tab" role="tab" data-cs="cs1" data-panel="screens">Screens</button>
+        </div>
+
+        <!-- Overview -->
+        <div class="cs-panels active" id="cs1-overview">
+          <div class="cs-overview">
+            <div class="cs-ov-left">
+              <div class="cs-kicker">
+                <span class="cs-type">Maritime Platform</span>
+                <span class="cs-year">2024 – Present</span>
+                <a href="https://www.mariapps.com/palng/" target="_blank" rel="noopener" class="cs-live-link">View Live ↗</a>
+              </div>
+              <h3 class="cs-title">PALng — AI-Driven Maritime Platform for 5,100+ Vessels</h3>
+              <div class="cs-challenge">
+                <strong style="color:var(--gold);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-family:var(--mono)">The Challenge</strong><br/>
+                Unify 15 safety-critical modules — from maintenance to procurement to AI analytics — into a single coherent platform serving vessel crews with poor connectivity and shore executives needing fleet-wide intelligence.
+              </div>
+              <div class="cs-meta-row">
+                <div class="cs-meta-cell"><div class="label">My Role</div><div class="val">UX Strategy Lead</div></div>
+                <div class="cs-meta-cell"><div class="label">Platform</div><div class="val">Web + Mobile</div></div>
+                <div class="cs-meta-cell"><div class="label">Domain</div><div class="val">Maritime SaaS / AI</div></div>
+              </div>
+            </div>
+            <div class="cs-divider"></div>
+            <div class="cs-ov-right">
+              <span class="cs-section-label">3 Key Contributions</span>
+              <div class="cs-contribs">
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">01</div>
+                  <p><strong>Unified information architecture</strong> across 15 modules with a shared master data framework — eliminating navigation fragmentation for 5 distinct user roles.</p>
+                </div>
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">02</div>
+                  <p><strong>Offline-first mobile UX</strong> for vessel operations in low/no-connectivity environments, with smart sync and conflict resolution patterns.</p>
+                </div>
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">03</div>
+                  <p><strong>Enterprise design system</strong> with 200+ components, WCAG 2.1 AA compliance, and dark/light modes powering all 18+ MariApps products.</p>
+                </div>
+              </div>
+              <span class="cs-section-label">Impact</span>
+              <div class="cs-impacts">
+                <div class="cs-impact">
+                  <div class="cs-impact-num">5,100+</div>
+                  <div class="cs-impact-label">Vessels on platform</div>
+                </div>
+                <div class="cs-impact">
+                  <div class="cs-impact-num">200+</div>
+                  <div class="cs-impact-label">Design system components</div>
+                </div>
+                <div class="cs-impact">
+                  <div class="cs-impact-num">15</div>
+                  <div class="cs-impact-label">Modules unified</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screens -->
+        <div class="cs-panels" id="cs1-screens" style="display:none">
+          <div class="cs-screens">
+            <span class="cs-section-label cs-screens-label">Platform Screens — Illustrative Mockups</span>
+            <div class="screens-grid g3">
+              <!-- Screen 1: Dashboard (tall) -->
+              <div class="screen-frame tall">
+                <svg viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="420" height="480" fill="#0C1220"/>
+                  <!-- Top nav -->
+                  <rect x="0" y="0" width="420" height="44" fill="#070C18"/>
+                  <rect x="14" y="14" width="80" height="16" rx="3" fill="#1557FF" opacity=".9"/>
+                  <rect x="104" y="18" width="50" height="8" rx="2" fill="#1F2A3D"/>
+                  <rect x="164" y="18" width="50" height="8" rx="2" fill="#1F2A3D"/>
+                  <rect x="224" y="18" width="50" height="8" rx="2" fill="#1F2A3D"/>
+                  <circle cx="398" cy="22" r="10" fill="#1F2A3D"/>
+                  <!-- Hero header -->
+                  <rect x="14" y="60" width="180" height="12" rx="3" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="14" y="80" width="120" height="8" rx="2" fill="#4A5568" opacity=".7"/>
+                  <!-- KPI Cards row -->
+                  <rect x="14" y="104" width="90" height="72" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="26" y="116" width="36" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="26" y="128" width="52" height="18" rx="3" fill="#4A82FF" opacity=".9"/>
+                  <rect x="26" y="152" width="44" height="6" rx="2" fill="#22c55e" opacity=".7"/>
+                  <rect x="114" y="104" width="90" height="72" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="126" y="116" width="36" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="126" y="128" width="52" height="18" rx="3" fill="#C9A96E" opacity=".9"/>
+                  <rect x="126" y="152" width="44" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="214" y="104" width="90" height="72" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="226" y="116" width="36" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="226" y="128" width="52" height="18" rx="3" fill="#4A82FF" opacity=".7"/>
+                  <rect x="226" y="152" width="44" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="314" y="104" width="90" height="72" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="326" y="116" width="36" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="326" y="128" width="52" height="18" rx="3" fill="#ef4444" opacity=".7"/>
+                  <rect x="326" y="152" width="44" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Chart area -->
+                  <rect x="14" y="192" width="250" height="140" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="26" y="204" width="80" height="8" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <polyline points="26,296 70,272 114,280 158,256 202,260 246,244" fill="none" stroke="#1557FF" stroke-width="2"/>
+                  <polyline points="26,310 70,300 114,294 158,306 202,288 246,280" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-dasharray="4,3" opacity=".7"/>
+                  <!-- Vessel list -->
+                  <rect x="274" y="192" width="130" height="140" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="286" y="204" width="70" height="7" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="286" y="220" width="106" height="28" rx="5" fill="#1F2A3D"/>
+                  <circle cx="298" cy="234" r="6" fill="#22c55e" opacity=".8"/>
+                  <rect x="310" y="228" width="60" height="5" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="310" y="237" width="40" height="4" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="286" y="254" width="106" height="28" rx="5" fill="#1F2A3D"/>
+                  <circle cx="298" cy="268" r="6" fill="#f59e0b" opacity=".8"/>
+                  <rect x="310" y="262" width="60" height="5" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="310" y="271" width="40" height="4" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="286" y="288" width="106" height="28" rx="5" fill="#1F2A3D"/>
+                  <circle cx="298" cy="302" r="6" fill="#22c55e" opacity=".8"/>
+                  <rect x="310" y="296" width="60" height="5" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="310" y="305" width="40" height="4" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <!-- AI alert -->
+                  <rect x="14" y="348" width="250" height="60" rx="8" fill="#1557FF" opacity=".1" stroke="#1557FF" stroke-width="1" stroke-opacity=".3"/>
+                  <circle cx="34" cy="378" r="10" fill="#1557FF" opacity=".8"/>
+                  <text x="34" y="382" text-anchor="middle" font-size="10" fill="white">AI</text>
+                  <rect x="52" y="364" width="130" height="7" rx="2" fill="#F7F8FC" opacity=".8"/>
+                  <rect x="52" y="376" width="100" height="5" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="52" y="387" width="80" height="5" rx="2" fill="#9AA3B5" opacity=".4"/>
+                  <!-- Bottom module tabs -->
+                  <rect x="14" y="424" width="56" height="40" rx="6" fill="#1557FF" opacity=".15" stroke="#1557FF" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="78" y="424" width="56" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="142" y="424" width="56" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="206" y="424" width="56" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="270" y="424" width="56" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="334" y="424" width="56" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                </svg>
+                <div class="screen-caption">Fleet Intelligence Dashboard · OceanAI alerts inline</div>
+              </div>
+              <!-- Screen 2: Module nav -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 240 230" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="240" height="230" fill="#0C1220"/>
+                  <rect x="0" y="0" width="240" height="36" fill="#070C18"/>
+                  <rect x="10" y="12" width="60" height="12" rx="3" fill="#1557FF" opacity=".8"/>
+                  <!-- Module grid -->
+                  <rect x="10" y="48" width="100" height="52" rx="8" fill="#0F1829" stroke="#1557FF" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="18" y="58" width="28" height="6" rx="2" fill="#4A82FF" opacity=".7"/>
+                  <rect x="18" y="70" width="50" height="10" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="18" y="85" width="40" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="120" y="48" width="110" height="52" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="128" y="58" width="28" height="6" rx="2" fill="#C9A96E" opacity=".7"/>
+                  <rect x="128" y="70" width="50" height="10" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="128" y="85" width="40" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="10" y="108" width="100" height="52" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="118" width="28" height="6" rx="2" fill="#22c55e" opacity=".7"/>
+                  <rect x="18" y="130" width="50" height="10" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="18" y="145" width="40" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="120" y="108" width="110" height="52" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="128" y="118" width="28" height="6" rx="2" fill="#ef4444" opacity=".7"/>
+                  <rect x="128" y="130" width="50" height="10" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="128" y="145" width="40" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="10" y="168" width="100" height="52" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="178" width="28" height="6" rx="2" fill="#a78bfa" opacity=".7"/>
+                  <rect x="18" y="190" width="50" height="10" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="18" y="205" width="40" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="120" y="168" width="110" height="52" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="128" y="178" width="28" height="6" rx="2" fill="#38bdf8" opacity=".7"/>
+                  <rect x="128" y="190" width="50" height="10" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="128" y="205" width="40" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                </svg>
+                <div class="screen-caption">Module Hub · 15 integrated modules</div>
+              </div>
+              <!-- Screen 3: Role dashboard -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 240 230" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="240" height="230" fill="#0C1220"/>
+                  <rect x="0" y="0" width="240" height="36" fill="#070C18"/>
+                  <rect x="10" y="12" width="100" height="12" rx="3" fill="#1F2A3D"/>
+                  <rect x="10" y="48" width="220" height="36" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <circle cx="28" cy="66" r="10" fill="#1557FF" opacity=".8"/>
+                  <rect x="44" y="58" width="80" height="7" rx="2" fill="#F7F8FC" opacity=".8"/>
+                  <rect x="44" y="70" width="56" height="5" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Progress rings simulated as arcs -->
+                  <rect x="10" y="96" width="66" height="66" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <circle cx="43" cy="129" r="18" fill="none" stroke="#1F2A3D" stroke-width="4"/>
+                  <circle cx="43" cy="129" r="18" fill="none" stroke="#1557FF" stroke-width="4" stroke-dasharray="85 27" stroke-linecap="round" transform="rotate(-90 43 129)"/>
+                  <rect x="86" y="96" width="66" height="66" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <circle cx="119" cy="129" r="18" fill="none" stroke="#1F2A3D" stroke-width="4"/>
+                  <circle cx="119" cy="129" r="18" fill="none" stroke="#C9A96E" stroke-width="4" stroke-dasharray="72 40" stroke-linecap="round" transform="rotate(-90 119 129)"/>
+                  <rect x="162" y="96" width="66" height="66" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <circle cx="195" cy="129" r="18" fill="none" stroke="#1F2A3D" stroke-width="4"/>
+                  <circle cx="195" cy="129" r="18" fill="none" stroke="#22c55e" stroke-width="4" stroke-dasharray="96 16" stroke-linecap="round" transform="rotate(-90 195 129)"/>
+                  <!-- Bar chart -->
+                  <rect x="10" y="174" width="220" height="48" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="22" y="186" width="18" height="24" rx="2" fill="#1557FF" opacity=".7"/>
+                  <rect x="48" y="194" width="18" height="16" rx="2" fill="#1557FF" opacity=".5"/>
+                  <rect x="74" y="182" width="18" height="28" rx="2" fill="#1557FF" opacity=".8"/>
+                  <rect x="100" y="190" width="18" height="20" rx="2" fill="#C9A96E" opacity=".7"/>
+                  <rect x="126" y="184" width="18" height="26" rx="2" fill="#1557FF" opacity=".6"/>
+                  <rect x="152" y="188" width="18" height="22" rx="2" fill="#1557FF" opacity=".5"/>
+                  <rect x="178" y="178" width="18" height="32" rx="2" fill="#1557FF" opacity=".9"/>
+                </svg>
+                <div class="screen-caption">Fleet Director View · Role-based KPI dashboard</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CASE STUDY 2: Inspection Management Mobile ─── -->
+    <div class="cs reveal">
+      <div class="cs-card">
+        <div class="cs-tabs">
+          <button class="cs-tab active" data-cs="cs2" data-panel="overview">Overview</button>
+          <button class="cs-tab" data-cs="cs2" data-panel="screens">Screens</button>
+        </div>
+        <div class="cs-panels active" id="cs2-overview">
+          <div class="cs-overview">
+            <div class="cs-ov-left">
+              <div class="cs-kicker">
+                <span class="cs-type">Mobile Application</span>
+                <span class="cs-year">2023 – 2024</span>
+                <a href="https://www.mariapps.com/mobile-applications/" target="_blank" rel="noopener" class="cs-live-link">View Live ↗</a>
+              </div>
+              <h3 class="cs-title">Inspection Management — Safety-Critical Mobile UX for Maritime Compliance</h3>
+              <div class="cs-challenge">
+                <strong style="color:var(--gold);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-family:var(--mono)">The Challenge</strong><br/>
+                Vessel Safety Officers managing ISM Code inspections were relying on paper checklists and disconnected emails. A missed audit entry or delayed CAPA closure could mean port state detention — a catastrophic business risk.
+              </div>
+              <div class="cs-meta-row">
+                <div class="cs-meta-cell"><div class="label">My Role</div><div class="val">UX & Product Design</div></div>
+                <div class="cs-meta-cell"><div class="label">Platform</div><div class="val">iOS + Android</div></div>
+                <div class="cs-meta-cell"><div class="label">Domain</div><div class="val">Maritime Safety / ISM</div></div>
+              </div>
+            </div>
+            <div class="cs-divider"></div>
+            <div class="cs-ov-right">
+              <span class="cs-section-label">3 Key Contributions</span>
+              <div class="cs-contribs">
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">01</div>
+                  <p><strong>3-minute incident reporting flow</strong> — operable under stress, with guided steps, photo capture, and digital signatures that produce compliance-ready reports automatically.</p>
+                </div>
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">02</div>
+                  <p><strong>Offline-first architecture UX</strong> designed for bridge environments with intermittent connectivity — full functionality without a data connection, sync on restore.</p>
+                </div>
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">03</div>
+                  <p><strong>DPA real-time safety dashboard</strong> giving shore management live fleet-wide risk visibility, open CAPA status, and overdue inspection alerts in one view.</p>
+                </div>
+              </div>
+              <span class="cs-section-label">Impact</span>
+              <div class="cs-impacts">
+                <div class="cs-impact">
+                  <div class="cs-impact-num">&lt;3min</div>
+                  <div class="cs-impact-label">Incident report time (from ~25 min)</div>
+                </div>
+                <div class="cs-impact">
+                  <div class="cs-impact-num">100%</div>
+                  <div class="cs-impact-label">Digital audit trail coverage</div>
+                </div>
+                <div class="cs-impact">
+                  <div class="cs-impact-num">5+</div>
+                  <div class="cs-impact-label">User roles served</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-panels" id="cs2-screens" style="display:none">
+          <div class="cs-screens">
+            <span class="cs-section-label cs-screens-label">Mobile App Screens — Illustrative Mockups</span>
+            <div class="screens-grid g4">
+              <!-- Mobile frame 1: App home -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 160 300" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="160" height="300" fill="#0C1220" rx="16"/>
+                  <rect x="0" y="0" width="160" height="300" rx="16" fill="none" stroke="#1F2A3D" stroke-width="1.5"/>
+                  <!-- Status bar -->
+                  <rect x="10" y="12" width="30" height="5" rx="2" fill="#4A5568" opacity=".5"/>
+                  <rect x="120" y="12" width="30" height="5" rx="2" fill="#4A5568" opacity=".5"/>
+                  <!-- Header -->
+                  <rect x="10" y="32" width="100" height="12" rx="3" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="10" y="50" width="70" height="7" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <!-- Alert card -->
+                  <rect x="10" y="68" width="140" height="50" rx="8" fill="#ef4444" opacity=".12" stroke="#ef4444" stroke-width="1" stroke-opacity=".3"/>
+                  <rect x="18" y="76" width="8" height="8" rx="2" fill="#ef4444" opacity=".8"/>
+                  <rect x="32" y="76" width="80" height="6" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="32" y="87" width="60" height="5" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="32" y="98" width="40" height="12" rx="6" fill="#ef4444" opacity=".8"/>
+                  <!-- Quick actions -->
+                  <rect x="10" y="130" width="62" height="60" rx="8" fill="#1557FF" opacity=".15" stroke="#1557FF" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="88" y="130" width="62" height="60" rx="8" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="150" width="40" height="6" rx="2" fill="#4A82FF" opacity=".9"/>
+                  <rect x="18" y="161" width="28" height="5" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="96" y="150" width="40" height="6" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="96" y="161" width="28" height="5" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- List items -->
+                  <rect x="10" y="204" width="140" height="30" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <circle cx="24" cy="219" r="7" fill="#22c55e" opacity=".3"/>
+                  <rect x="36" y="212" width="70" height="5" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="36" y="222" width="50" height="4" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="10" y="240" width="140" height="30" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <circle cx="24" cy="255" r="7" fill="#f59e0b" opacity=".3"/>
+                  <rect x="36" y="248" width="70" height="5" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="36" y="258" width="50" height="4" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Tab bar -->
+                  <rect x="0" y="276" width="160" height="24" rx="0" fill="#070C18"/>
+                  <rect x="20" y="282" width="20" height="4" rx="2" fill="#1557FF" opacity=".9"/>
+                  <rect x="68" y="282" width="20" height="4" rx="2" fill="#4A5568" opacity=".5"/>
+                  <rect x="116" y="282" width="20" height="4" rx="2" fill="#4A5568" opacity=".5"/>
+                </svg>
+                <div class="screen-caption">Home · Open alerts & quick actions</div>
+              </div>
+              <!-- Mobile frame 2: Incident form -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 160 300" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="160" height="300" fill="#0C1220" rx="16"/>
+                  <rect x="0" y="0" width="160" height="300" rx="16" fill="none" stroke="#1F2A3D" stroke-width="1.5"/>
+                  <rect x="10" y="12" width="30" height="5" rx="2" fill="#4A5568" opacity=".5"/>
+                  <!-- Steps indicator -->
+                  <rect x="10" y="28" width="40" height="4" rx="2" fill="#1557FF" opacity=".9"/>
+                  <rect x="56" y="28" width="40" height="4" rx="2" fill="#1F2A3D"/>
+                  <rect x="102" y="28" width="40" height="4" rx="2" fill="#1F2A3D"/>
+                  <rect x="10" y="40" width="80" height="10" rx="3" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="10" y="56" width="50" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Form fields -->
+                  <rect x="10" y="76" width="140" height="8" rx="2" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="10" y="90" width="140" height="32" rx="6" fill="#0F1829" stroke="#1557FF" stroke-width="1" stroke-opacity=".5"/>
+                  <rect x="18" y="100" width="80" height="6" rx="2" fill="#F7F8FC" opacity=".6"/>
+                  <rect x="10" y="132" width="140" height="8" rx="2" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="10" y="146" width="140" height="32" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="156" width="60" height="6" rx="2" fill="#F7F8FC" opacity=".4"/>
+                  <!-- Photo attachment -->
+                  <rect x="10" y="190" width="140" height="8" rx="2" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="10" y="204" width="64" height="52" rx="6" fill="#1557FF" opacity=".1" stroke="#1557FF" stroke-width="1" stroke-opacity=".3"/>
+                  <rect x="28" y="222" width="28" height="4" rx="2" fill="#4A82FF" opacity=".7"/>
+                  <rect x="34" y="216" width="16" height="12" rx="3" fill="#1557FF" opacity=".4"/>
+                  <rect x="80" y="204" width="70" height="52" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="86" y="214" width="58" height="32" rx="4" fill="#1F2A3D"/>
+                  <!-- CTA -->
+                  <rect x="10" y="268" width="140" height="22" rx="11" fill="#1557FF" opacity=".9"/>
+                  <rect x="50" y="274" width="60" height="8" rx="2" fill="#fff" opacity=".8"/>
+                </svg>
+                <div class="screen-caption">Incident Report · Guided 3-step flow</div>
+              </div>
+              <!-- Mobile frame 3: Checklist -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 160 300" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="160" height="300" fill="#0C1220" rx="16"/>
+                  <rect x="0" y="0" width="160" height="300" rx="16" fill="none" stroke="#1F2A3D" stroke-width="1.5"/>
+                  <rect x="10" y="12" width="30" height="5" rx="2" fill="#4A5568" opacity=".5"/>
+                  <rect x="10" y="28" width="80" height="10" rx="3" fill="#F7F8FC" opacity=".85"/>
+                  <!-- Progress -->
+                  <rect x="10" y="48" width="140" height="6" rx="3" fill="#1F2A3D"/>
+                  <rect x="10" y="48" width="90" height="6" rx="3" fill="#1557FF" opacity=".8"/>
+                  <rect x="10" y="58" width="60" height="5" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Checklist items -->
+                  <rect x="10" y="76" width="140" height="28" rx="6" fill="#0F1829" stroke="#22c55e" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="18" y="86" width="16" height="16" rx="4" fill="#22c55e" opacity=".8"/>
+                  <rect x="40" y="87" width="80" height="6" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="40" y="97" width="50" height="4" rx="1" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="10" y="110" width="140" height="28" rx="6" fill="#0F1829" stroke="#22c55e" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="18" y="120" width="16" height="16" rx="4" fill="#22c55e" opacity=".8"/>
+                  <rect x="40" y="121" width="70" height="6" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="40" y="131" width="50" height="4" rx="1" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="10" y="144" width="140" height="28" rx="6" fill="#0F1829" stroke="#1557FF" stroke-width="1" stroke-opacity=".5"/>
+                  <rect x="18" y="154" width="16" height="16" rx="4" fill="#1557FF" opacity=".3" stroke="#1557FF" stroke-width="1"/>
+                  <rect x="40" y="155" width="80" height="6" rx="2" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="40" y="165" width="50" height="4" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="10" y="178" width="140" height="28" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="188" width="16" height="16" rx="4" fill="#1F2A3D"/>
+                  <rect x="40" y="189" width="70" height="6" rx="2" fill="#F7F8FC" opacity=".5"/>
+                  <rect x="10" y="212" width="140" height="28" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="222" width="16" height="16" rx="4" fill="#1F2A3D"/>
+                  <rect x="40" y="223" width="80" height="6" rx="2" fill="#F7F8FC" opacity=".5"/>
+                  <rect x="10" y="252" width="140" height="28" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="262" width="16" height="16" rx="4" fill="#1F2A3D"/>
+                  <rect x="40" y="263" width="60" height="6" rx="2" fill="#F7F8FC" opacity=".5"/>
+                </svg>
+                <div class="screen-caption">Safety Checklist · ISM Code compliant</div>
+              </div>
+              <!-- Mobile frame 4: DPA dashboard -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 160 300" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="160" height="300" fill="#0C1220" rx="16"/>
+                  <rect x="0" y="0" width="160" height="300" rx="16" fill="none" stroke="#1F2A3D" stroke-width="1.5"/>
+                  <rect x="10" y="12" width="30" height="5" rx="2" fill="#4A5568" opacity=".5"/>
+                  <rect x="10" y="28" width="90" height="10" rx="3" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="10" y="44" width="60" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Risk ring -->
+                  <circle cx="80" cy="100" r="44" fill="none" stroke="#1F2A3D" stroke-width="8"/>
+                  <circle cx="80" cy="100" r="44" fill="none" stroke="#22c55e" stroke-width="8" stroke-dasharray="220 56" stroke-linecap="round" transform="rotate(-90 80 100)"/>
+                  <rect x="54" y="92" width="52" height="16" rx="3" fill="#F7F8FC" opacity=".85"/>
+                  <rect x="62" y="112" width="36" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <!-- Stats row -->
+                  <rect x="10" y="160" width="44" height="38" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="16" y="170" width="20" height="8" rx="2" fill="#ef4444" opacity=".8"/>
+                  <rect x="16" y="182" width="28" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="58" y="160" width="44" height="38" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="64" y="170" width="20" height="8" rx="2" fill="#f59e0b" opacity=".8"/>
+                  <rect x="64" y="182" width="28" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="106" y="160" width="44" height="38" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="112" y="170" width="20" height="8" rx="2" fill="#22c55e" opacity=".8"/>
+                  <rect x="112" y="182" width="28" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <!-- CAPA list -->
+                  <rect x="10" y="210" width="140" height="24" rx="5" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="218" width="6" height="6" rx="1" fill="#ef4444" opacity=".8"/>
+                  <rect x="30" y="217" width="70" height="5" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="30" y="226" width="40" height="3" rx="1" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="10" y="240" width="140" height="24" rx="5" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="248" width="6" height="6" rx="1" fill="#f59e0b" opacity=".8"/>
+                  <rect x="30" y="247" width="70" height="5" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="30" y="256" width="40" height="3" rx="1" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="10" y="270" width="140" height="22" rx="11" fill="#1557FF" opacity=".9"/>
+                  <rect x="40" y="276" width="80" height="8" rx="2" fill="#fff" opacity=".8"/>
+                </svg>
+                <div class="screen-caption">DPA Dashboard · Fleet risk at a glance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── CASE STUDY 3: Enterprise Design System ─── -->
+    <div class="cs reveal">
+      <div class="cs-card">
+        <div class="cs-tabs">
+          <button class="cs-tab active" data-cs="cs3" data-panel="overview">Overview</button>
+          <button class="cs-tab" data-cs="cs3" data-panel="screens">Screens</button>
+        </div>
+        <div class="cs-panels active" id="cs3-overview">
+          <div class="cs-overview">
+            <div class="cs-ov-left">
+              <div class="cs-kicker">
+                <span class="cs-type" style="background:rgba(201,169,110,.1);border-color:rgba(201,169,110,.25);color:var(--gold-lt)">Design Infrastructure</span>
+                <span class="cs-year">2023 – Present</span>
+                <a href="https://www.mariapps.com/smartpal/" target="_blank" rel="noopener" class="cs-live-link">View Live ↗</a>
+              </div>
+              <h3 class="cs-title">Enterprise Design System — Scaling Consistency Across 18+ Products</h3>
+              <div class="cs-challenge">
+                <strong style="color:var(--gold);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-family:var(--mono)">The Challenge</strong><br/>
+                With 18+ products, 35 designers working in parallel, and clients including Maersk, BSM, and MOL — design inconsistency was becoming a product quality and brand risk. A single misread component in a safety-critical workflow was unacceptable.
+              </div>
+              <div class="cs-meta-row">
+                <div class="cs-meta-cell"><div class="label">My Role</div><div class="val">Design System Lead</div></div>
+                <div class="cs-meta-cell"><div class="label">Tooling</div><div class="val">Figma + Tokens</div></div>
+                <div class="cs-meta-cell"><div class="label">Scale</div><div class="val">18+ Products</div></div>
+              </div>
+            </div>
+            <div class="cs-divider"></div>
+            <div class="cs-ov-right">
+              <span class="cs-section-label">3 Key Contributions</span>
+              <div class="cs-contribs">
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">01</div>
+                  <p><strong>200+ component library</strong> with maritime-specific components — vessel status widgets, compliance traffic lights, HSEQ risk indicators, and fleet map primitives.</p>
+                </div>
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">02</div>
+                  <p><strong>Design token architecture</strong> enabling consistent theming across PALng, ferryPAL, cruisePAL, smartPAL, and all mobile apps from a single source of truth.</p>
+                </div>
+                <div class="cs-contrib">
+                  <div class="cs-contrib-num">03</div>
+                  <p><strong>Governance system</strong> with working group, contribution guidelines, changelog, and quarterly review — turning 35 designers into aligned contributors, not silos.</p>
+                </div>
+              </div>
+              <span class="cs-section-label">Impact</span>
+              <div class="cs-impacts">
+                <div class="cs-impact">
+                  <div class="cs-impact-num">200+</div>
+                  <div class="cs-impact-label">Components in library</div>
+                </div>
+                <div class="cs-impact">
+                  <div class="cs-impact-num">18+</div>
+                  <div class="cs-impact-label">Products powered</div>
+                </div>
+                <div class="cs-impact">
+                  <div class="cs-impact-num">35</div>
+                  <div class="cs-impact-label">Designers unified</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs-panels" id="cs3-screens" style="display:none">
+          <div class="cs-screens">
+            <span class="cs-section-label cs-screens-label">Design System Documentation — Illustrative Screens</span>
+            <div class="screens-grid g3">
+              <!-- Component library -->
+              <div class="screen-frame tall">
+                <svg viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="420" height="480" fill="#0C1220"/>
+                  <!-- Sidebar -->
+                  <rect x="0" y="0" width="140" height="480" fill="#070C18"/>
+                  <rect x="12" y="20" width="80" height="10" rx="3" fill="#C9A96E" opacity=".9"/>
+                  <rect x="12" y="40" width="60" height="6" rx="2" fill="#4A5568" opacity=".5"/>
+                  <rect x="12" y="64" width="6" height="6" rx="1" fill="#1557FF" opacity=".8"/>
+                  <rect x="24" y="64" width="60" height="6" rx="2" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="12" y="80" width="6" height="6" rx="1" fill="#4A5568" opacity=".4"/>
+                  <rect x="24" y="80" width="50" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="12" y="96" width="6" height="6" rx="1" fill="#4A5568" opacity=".4"/>
+                  <rect x="24" y="96" width="55" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="12" y="120" width="80" height="6" rx="2" fill="#4A5568" opacity=".4"/>
+                  <rect x="12" y="136" width="50" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="12" y="152" width="60" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="12" y="168" width="45" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="12" y="192" width="80" height="6" rx="2" fill="#4A5568" opacity=".4"/>
+                  <rect x="12" y="208" width="55" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="12" y="224" width="65" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Main content -->
+                  <rect x="152" y="16" width="100" height="8" rx="2" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="152" y="30" width="160" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Component swatches -->
+                  <rect x="152" y="52" width="60" height="28" rx="8" fill="#1557FF" opacity=".9"/>
+                  <rect x="220" y="52" width="60" height="28" rx="8" fill="#1557FF" opacity=".15" stroke="#1557FF" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="288" y="52" width="60" height="28" rx="8" fill="none" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="356" y="52" width="60" height="28" rx="8" fill="#ef4444" opacity=".85"/>
+                  <!-- Color tokens -->
+                  <rect x="152" y="100" width="60" height="40" rx="6" fill="#1557FF"/>
+                  <rect x="152" y="144" width="60" height="8" rx="2" fill="#4A82FF" opacity=".7"/>
+                  <rect x="152" y="156" width="50" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="220" y="100" width="60" height="40" rx="6" fill="#C9A96E"/>
+                  <rect x="220" y="144" width="60" height="8" rx="2" fill="#D9BF8C" opacity=".7"/>
+                  <rect x="220" y="156" width="50" height="5" rx="1" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="288" y="100" width="60" height="40" rx="6" fill="#22c55e"/>
+                  <rect x="356" y="100" width="60" height="40" rx="6" fill="#ef4444"/>
+                  <!-- Vessel widget -->
+                  <rect x="152" y="180" width="262" height="80" rx="8" fill="#0F1829" stroke="#1557FF" stroke-width="1" stroke-opacity=".3"/>
+                  <rect x="162" y="192" width="80" height="8" rx="2" fill="#C9A96E" opacity=".8"/>
+                  <rect x="162" y="206" width="50" height="14" rx="3" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="162" y="226" width="70" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="310" y="192" width="40" height="12" rx="6" fill="#22c55e" opacity=".2" stroke="#22c55e" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="316" y="196" width="28" height="4" rx="1" fill="#22c55e" opacity=".9"/>
+                  <!-- Typography scale -->
+                  <rect x="152" y="276" width="100" height="6" rx="2" fill="#4A5568" opacity=".4"/>
+                  <rect x="152" y="294" width="262" height="18" rx="3" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="152" y="320" width="200" height="12" rx="2" fill="#F7F8FC" opacity=".75"/>
+                  <rect x="152" y="342" width="220" height="8" rx="2" fill="#F7F8FC" opacity=".6"/>
+                  <rect x="152" y="360" width="180" height="7" rx="2" fill="#9AA3B5" opacity=".7"/>
+                  <!-- Icons grid -->
+                  <rect x="152" y="384" width="40" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="198" y="384" width="40" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="244" y="384" width="40" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="290" y="384" width="40" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="336" y="384" width="40" height="40" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="162" y="398" width="20" height="12" rx="3" fill="#1557FF" opacity=".5"/>
+                  <rect x="208" y="398" width="20" height="12" rx="3" fill="#C9A96E" opacity=".5"/>
+                  <rect x="254" y="398" width="20" height="12" rx="3" fill="#22c55e" opacity=".5"/>
+                  <rect x="300" y="398" width="20" height="12" rx="3" fill="#ef4444" opacity=".5"/>
+                  <rect x="346" y="398" width="20" height="12" rx="3" fill="#a78bfa" opacity=".5"/>
+                  <!-- Spacing docs -->
+                  <rect x="152" y="442" width="262" height="28" rx="6" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="162" y="452" width="6" height="8" rx="1" fill="#1557FF" opacity=".6"/>
+                  <rect x="172" y="456" width="6" height="4" rx="1" fill="#C9A96E" opacity=".6"/>
+                  <rect x="182" y="450" width="6" height="10" rx="1" fill="#1557FF" opacity=".6"/>
+                </svg>
+                <div class="screen-caption">Component Library · Maritime-specific design tokens</div>
+              </div>
+              <!-- Design tokens doc -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 240 230" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="240" height="230" fill="#0C1220"/>
+                  <rect x="10" y="14" width="100" height="10" rx="3" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="10" y="30" width="140" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Token list -->
+                  <rect x="10" y="50" width="220" height="24" rx="4" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="58" width="90" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="174" y="56" width="48" height="10" rx="3" fill="#1557FF"/>
+                  <rect x="10" y="80" width="220" height="24" rx="4" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="88" width="80" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="174" y="86" width="48" height="10" rx="3" fill="#C9A96E"/>
+                  <rect x="10" y="110" width="220" height="24" rx="4" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="118" width="70" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="174" y="116" width="48" height="10" rx="3" fill="#070C18" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="10" y="140" width="220" height="24" rx="4" fill="#0F1829" stroke="#1F2A3D" stroke-width="1"/>
+                  <rect x="18" y="148" width="90" height="6" rx="2" fill="#9AA3B5" opacity=".6"/>
+                  <rect x="174" y="146" width="48" height="10" rx="3" fill="#0C1220" stroke="#1F2A3D" stroke-width="1"/>
+                  <!-- Spacing tokens -->
+                  <rect x="10" y="178" width="100" height="8" rx="2" fill="#4A5568" opacity=".5"/>
+                  <rect x="10" y="196" width="16" height="16" rx="3" fill="#1557FF" opacity=".3"/>
+                  <rect x="32" y="196" width="24" height="16" rx="3" fill="#1557FF" opacity=".4"/>
+                  <rect x="62" y="196" width="32" height="16" rx="3" fill="#1557FF" opacity=".5"/>
+                  <rect x="100" y="196" width="40" height="16" rx="3" fill="#1557FF" opacity=".6"/>
+                  <rect x="146" y="196" width="48" height="16" rx="3" fill="#1557FF" opacity=".7"/>
+                  <rect x="200" y="196" width="30" height="6" rx="2" fill="#9AA3B5" opacity=".4"/>
+                  <rect x="200" y="206" width="30" height="6" rx="2" fill="#9AA3B5" opacity=".3"/>
+                </svg>
+                <div class="screen-caption">Token Architecture · Semantic design tokens</div>
+              </div>
+              <!-- Governance doc -->
+              <div class="screen-frame">
+                <svg viewBox="0 0 240 230" xmlns="http://www.w3.org/2000/svg" class="mock-svg">
+                  <rect width="240" height="230" fill="#0C1220"/>
+                  <rect x="10" y="14" width="130" height="10" rx="3" fill="#F7F8FC" opacity=".9"/>
+                  <rect x="10" y="30" width="90" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <!-- Flow chart of governance -->
+                  <rect x="80" y="52" width="80" height="26" rx="6" fill="#1557FF" opacity=".8"/>
+                  <rect x="86" y="60" width="68" height="8" rx="2" fill="#fff" opacity=".8"/>
+                  <line x1="120" y1="78" x2="120" y2="95" stroke="#1557FF" stroke-width="1.5" stroke-opacity=".5"/>
+                  <rect x="80" y="95" width="80" height="26" rx="6" fill="#0F1829" stroke="#1557FF" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="86" y="103" width="68" height="8" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <line x1="120" y1="121" x2="120" y2="138" stroke="#1557FF" stroke-width="1.5" stroke-opacity=".5"/>
+                  <rect x="30" y="138" width="80" height="26" rx="6" fill="#0F1829" stroke="#C9A96E" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="36" y="146" width="68" height="8" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <rect x="130" y="138" width="80" height="26" rx="6" fill="#0F1829" stroke="#22c55e" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="136" y="146" width="68" height="8" rx="2" fill="#F7F8FC" opacity=".7"/>
+                  <!-- Members -->
+                  <rect x="10" y="186" width="220" height="8" rx="2" fill="#4A5568" opacity=".4"/>
+                  <circle cx="24" cy="208" r="14" fill="#1557FF" opacity=".3" stroke="#1557FF" stroke-width="1" stroke-opacity=".4"/>
+                  <circle cx="56" cy="208" r="14" fill="#C9A96E" opacity=".3" stroke="#C9A96E" stroke-width="1" stroke-opacity=".4"/>
+                  <circle cx="88" cy="208" r="14" fill="#22c55e" opacity=".3" stroke="#22c55e" stroke-width="1" stroke-opacity=".4"/>
+                  <circle cx="120" cy="208" r="14" fill="#1557FF" opacity=".3" stroke="#1557FF" stroke-width="1" stroke-opacity=".4"/>
+                  <rect x="148" y="201" width="80" height="6" rx="2" fill="#9AA3B5" opacity=".5"/>
+                  <rect x="148" y="213" width="60" height="5" rx="1" fill="#9AA3B5" opacity=".3"/>
+                </svg>
+                <div class="screen-caption">Governance Framework · Contribution workflow</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════ CAREER TIMELINE ════════════ -->
+<section id="journey">
+  <div class="wrap">
+    <div class="journey-grid">
+      <div class="journey-sidebar reveal">
+        <span class="eyebrow">Career Journey</span>
+        <h2 class="serif-lg">20 years of progressive leadership.</h2>
+      </div>
+      <div class="tl reveal d2">
+
+        <div class="tl-item now">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2024–Present</div>
+          <div class="tl-role">UI/UX Team Leader</div>
+          <div class="tl-org"><a href="https://www.mariapps.com/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(201,169,110,.4)">MariApps Marine Solutions</a> · Kochi and Madurai</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2015–2023</div>
+          <div class="tl-role">Lead UI/UX Design Engineer</div>
+          <div class="tl-org"><a href="https://www.fourbends.com/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(201,169,110,.4)">FourBends</a> · Madurai</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2014–2015</div>
+          <div class="tl-role">Lead Design Engineer</div>
+          <div class="tl-org">Black Light Technologies · Madurai</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2005–2014</div>
+          <div class="tl-role">UI Designer → Senior Designer → Team Leader</div>
+          <div class="tl-org">Kreative Pixel Systems, CA Infotech India, Paletteiicons · Madurai</div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TOOLS ════════════ -->
+<section id="tools">
+  <div class="wrap">
+    <div class="tools-header">
+      <span class="eyebrow reveal">Design Toolbox</span>
+      <h2 class="serif-lg reveal d1" style="max-width:500px">Core tools for enterprise-scale design work.</h2>
+    </div>
+    <div class="tools-grid reveal d2">
+      <div class="tool-cell"><div class="tool-icon">🎨</div><div class="tool-name">Figma</div><div class="tool-cat">Design + Prototyping</div></div>
+      <div class="tool-cell"><div class="tool-icon">⚡</div><div class="tool-name">FigJam</div><div class="tool-cat">Collaboration + Workshops</div></div>
+      <div class="tool-cell"><div class="tool-icon">🔬</div><div class="tool-name">Maze / Lookback</div><div class="tool-cat">User Research</div></div>
+      <div class="tool-cell"><div class="tool-icon">📊</div><div class="tool-name">Hotjar / Clarity</div><div class="tool-cat">Behaviour Analytics</div></div>
+      <div class="tool-cell"><div class="tool-icon">🤝</div><div class="tool-name">Jira / Confluence</div><div class="tool-cat">Product Collaboration</div></div>
+      <div class="tool-cell"><div class="tool-icon">🪙</div><div class="tool-name">Design Tokens</div><div class="tool-cat">System Governance</div></div>
+      <div class="tool-cell"><div class="tool-icon">♿</div><div class="tool-name">Axe / WAVE</div><div class="tool-cat">Accessibility Audit</div></div>
+      <div class="tool-cell"><div class="tool-icon">🤖</div><div class="tool-name">AI Tools</div><div class="tool-cat">Claude / Midjourney</div></div>
+      <div class="tool-cell"><div class="tool-icon">📐</div><div class="tool-name">Miro</div><div class="tool-cat">Strategy + IA</div></div>
+      <div class="tool-cell"><div class="tool-icon">💻</div><div class="tool-name">HTML / CSS</div><div class="tool-cat">Front-End Fluency</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CONTACT ════════════ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-wrap">
+      <span class="eyebrow reveal">Let's Connect</span>
+      <h2 class="serif-lg reveal d1">Ready to lead your next design transformation.</h2>
+      <p class="body-lg reveal d2">Looking for a Design Director, Head of UX, or VP Design who has shipped enterprise products at scale? Let's talk.</p>
+      <div class="contact-ctas reveal d3">
+        <a href="mailto:saleem.abd@gmail.com" class="btn btn-primary btn-lg">saleem.abd@gmail.com</a>
+        <a href="https://www.linkedin.com/in/saleemabd/" target="_blank" rel="noopener" class="btn btn-outline btn-lg">LinkedIn ↗</a>
+        <a href="#" class="btn btn-outline btn-lg" onclick="alert('Replace with resume PDF link')">Resume ↓</a>
+      </div>
+      <div class="contact-links reveal d4">
+        <a href="tel:+919944159845" class="c-link"><span class="c-link-icon">📱</span> +91 99441 59845</a>
+        <a href="mailto:saleem.abd@gmail.com" class="c-link"><span class="c-link-icon">✉️</span> saleem.abd@gmail.com</a>
+    
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 Abdul Saleem B · UI/UX Team Leader</span>
+    <span class="footer-made">Designed with intention · Built with <span>purpose</span></span>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════
+   HERO CANVAS — MULTI-LAYER LIVE ANIMATION
+   Layers: deep stars · mid constellation · shooting stars
+           mouse-attract ripple · data-flow pulses
+════════════════════════════════════════════════ */
+(function initHeroCanvas(){
+  const canvas = document.getElementById('hero-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let W, H;
+  let mouse = {x:-9999, y:-9999, active:false};
+  let ripples = [];      // click ripples
+  let shooters = [];     // shooting stars
+  let flowPulses = [];   // travelling dot along a link
+
+  /* ── PALETTE ── */
+  const BLUE  = [21,87,255];
+  const BLUELT= [74,130,255];
+  const GOLD  = [201,169,110];
+  const WHITE = [247,248,252];
+
+  /* ── CONFIG ── */
+  const CFG = {
+    /* deep background micro-stars */
+    starCount:    55,
+    starMinR:     0.4,
+    starMaxR:     1.1,
+    starSpeed:    0.12,
+
+    /* mid-layer constellation nodes */
+    nodeCount:    48,
+    nodeMinR:     1.0,
+    nodeMaxR:     2.8,
+    nodeSpeed:    0.22,
+    linkDist:     155,
+    linkOpacity:  0.2,
+
+    /* pulse nodes (larger, breathing) */
+    pulseCount:   7,
+
+    /* mouse interaction */
+    attractDist:  200,
+    attractForce: 0.025,
+
+    /* shooting stars */
+    shootInterval:220,   // frames between each
+    shootDuration:55,    // frames each lasts
+
+    /* data-flow pulse along links */
+    flowInterval: 90,
+  };
+
+  function rnd(a,b){ return a + Math.random()*(b-a); }
+  function rgba(c,a){ return `rgba(${c[0]},${c[1]},${c[2]},${a})`; }
+
+  /* ─── STARS (deep, slow, no links) ─── */
+  let stars = [];
+  function mkStar(){
+    const palette = [BLUELT, WHITE, GOLD];
+    const col = palette[Math.floor(Math.random()*palette.length)];
+    return {
+      x: Math.random()*W, y: Math.random()*H,
+      vx:(Math.random()-.5)*CFG.starSpeed,
+      vy:(Math.random()-.5)*CFG.starSpeed,
+      r: rnd(CFG.starMinR, CFG.starMaxR),
+      col, op: rnd(.08,.35),
+      phase: Math.random()*Math.PI*2,
+      phSpd: rnd(.004,.012),
+    };
+  }
+
+  /* ─── NODES (mid layer, linked) ─── */
+  let nodes = [];
+  function mkNode(i){
+    const isPulse = i < CFG.pulseCount;
+    const colList = [BLUELT, BLUELT, BLUE, GOLD, WHITE];
+    const col = colList[Math.floor(Math.random()*colList.length)];
+    return {
+      x: Math.random()*W, y: Math.random()*H,
+      ox:0, oy:0,          // original pos for attraction spring
+      vx:(Math.random()-.5)*CFG.nodeSpeed*(isPulse?.4:1),
+      vy:(Math.random()-.5)*CFG.nodeSpeed*(isPulse?.4:1),
+      r: isPulse ? rnd(2.2,3.8) : rnd(CFG.nodeMinR, CFG.nodeMaxR),
+      col, isPulse,
+      op: rnd(.3,.9),
+      phase: Math.random()*Math.PI*2,
+      phSpd: rnd(.006,.018),
+    };
+  }
+
+  function init(){
+    W = canvas.width  = canvas.offsetWidth  || window.innerWidth;
+    H = canvas.height = canvas.offsetHeight || window.innerHeight;
+    stars  = Array.from({length:CFG.starCount},  mkStar);
+    nodes  = Array.from({length:CFG.nodeCount},  (_,i)=>mkNode(i));
+    shooters   = [];
+    ripples    = [];
+    flowPulses = [];
+  }
+
+  /* ─── DRAW STAR ─── */
+  function drawStar(s, t){
+    const breathe = .7 + .3*Math.sin(t*s.phSpd + s.phase);
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+    ctx.fillStyle = rgba(s.col, s.op * breathe);
+    ctx.fill();
+  }
+
+  /* ─── DRAW NODE ─── */
+  function drawNode(n, t){
+    const breathe = n.isPulse
+      ? .55 + .45*Math.sin(t*n.phSpd + n.phase)
+      : 1;
+    const op = n.op * breathe;
+
+    if(n.isPulse){
+      /* glow rings — two halos */
+      const g = ctx.createRadialGradient(n.x,n.y,0, n.x,n.y, n.r*8);
+      g.addColorStop(0,   rgba(n.col, op*.35));
+      g.addColorStop(0.4, rgba(n.col, op*.12));
+      g.addColorStop(1,   rgba(n.col, 0));
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r*8, 0, Math.PI*2);
+      ctx.fillStyle = g;
+      ctx.fill();
+
+      /* mid ring */
+      const g2 = ctx.createRadialGradient(n.x,n.y,0, n.x,n.y, n.r*3.5);
+      g2.addColorStop(0,   rgba(n.col, op*.6));
+      g2.addColorStop(1,   rgba(n.col, 0));
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r*3.5, 0, Math.PI*2);
+      ctx.fillStyle = g2;
+      ctx.fill();
+    }
+
+    /* core */
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+    ctx.fillStyle = rgba(n.col, op);
+    ctx.fill();
+  }
+
+  /* ─── DRAW LINKS ─── */
+  function drawLinks(t){
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a=nodes[i], b=nodes[j];
+        const dx=a.x-b.x, dy=a.y-b.y;
+        const dist=Math.hypot(dx,dy);
+        if(dist < CFG.linkDist){
+          const fade = 1 - dist/CFG.linkDist;
+          const op = CFG.linkOpacity * fade;
+          /* line colour: gold if either node is gold */
+          const isGold = (a.col===GOLD || b.col===GOLD);
+          const lc = isGold ? GOLD : BLUELT;
+          ctx.beginPath();
+          ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle = rgba(lc, op);
+          ctx.lineWidth = 0.45 + fade*.35;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  /* ─── SHOOTING STARS ─── */
+  function spawnShooter(){
+    const angle = rnd(-0.4, -0.15); // mostly left-to-right, slight downward
+    const speed = rnd(7, 13);
+    const len   = rnd(80, 160);
+    // start from a random top/left edge
+    const fromTop = Math.random() > .4;
+    return {
+      x: fromTop ? Math.random()*W*1.2 : -20,
+      y: fromTop ? rnd(-20, H*.3) : rnd(H*.05, H*.6),
+      vx: Math.cos(angle)*speed,
+      vy: Math.sin(angle)*speed + rnd(.5,2),
+      len, life:0, maxLife: CFG.shootDuration,
+      col: Math.random()>.75 ? GOLD : BLUELT,
+      width: rnd(.8, 1.6),
+    };
+  }
+
+  function drawShooter(s){
+    const prog = s.life/s.maxLife;
+    const tailX = s.x - s.vx*(s.len/s.speed||6);
+    const tailY = s.y - s.vy*(s.len/s.speed||6);
+    const fade  = prog < .2 ? prog/.2 : prog > .7 ? 1-(prog-.7)/.3 : 1;
+    const g = ctx.createLinearGradient(tailX,tailY,s.x,s.y);
+    g.addColorStop(0, rgba(s.col,0));
+    g.addColorStop(1, rgba(s.col,.85*fade));
+    ctx.beginPath();
+    ctx.moveTo(tailX,tailY); ctx.lineTo(s.x,s.y);
+    ctx.strokeStyle = g;
+    ctx.lineWidth = s.width;
+    ctx.stroke();
+    /* bright tip */
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.width*1.4,0,Math.PI*2);
+    ctx.fillStyle = rgba(s.col,.9*fade);
+    ctx.fill();
+  }
+
+  /* ─── DATA-FLOW PULSES (travel along a link) ─── */
+  function spawnFlow(){
+    /* pick a random linked pair */
+    for(let tries=0;tries<20;tries++){
+      const i = Math.floor(Math.random()*nodes.length);
+      const j = Math.floor(Math.random()*nodes.length);
+      if(i===j) continue;
+      const dist = Math.hypot(nodes[i].x-nodes[j].x, nodes[i].y-nodes[j].y);
+      if(dist < CFG.linkDist){
+        return { from:i, to:j, t:0, col: Math.random()>.6?GOLD:BLUELT };
+      }
+    }
+    return null;
+  }
+
+  function drawFlow(f){
+    const a=nodes[f.from], b=nodes[f.to];
+    const x = a.x + (b.x-a.x)*f.t;
+    const y = a.y + (b.y-a.y)*f.t;
+    const fade = f.t<.15 ? f.t/.15 : f.t>.85 ? (1-f.t)/.15 : 1;
+    /* glow */
+    const g = ctx.createRadialGradient(x,y,0,x,y,6);
+    g.addColorStop(0, rgba(f.col,.9*fade));
+    g.addColorStop(1, rgba(f.col,0));
+    ctx.beginPath(); ctx.arc(x,y,6,0,Math.PI*2);
+    ctx.fillStyle=g; ctx.fill();
+    /* core */
+    ctx.beginPath(); ctx.arc(x,y,2,0,Math.PI*2);
+    ctx.fillStyle=rgba(f.col,1*fade); ctx.fill();
+  }
+
+  /* ─── RIPPLES (on click) ─── */
+  function drawRipple(r){
+    const prog = r.life/r.maxLife;
+    const radius = r.maxRadius * prog;
+    const op = (1-prog)*.5;
+    ctx.beginPath();
+    ctx.arc(r.x,r.y,radius,0,Math.PI*2);
+    ctx.strokeStyle = rgba(BLUELT, op);
+    ctx.lineWidth = 1.5*(1-prog);
+    ctx.stroke();
+    /* second ring slightly behind */
+    if(prog>.15){
+      const r2 = r.maxRadius*(prog-.12);
+      ctx.beginPath(); ctx.arc(r.x,r.y,r2,0,Math.PI*2);
+      ctx.strokeStyle = rgba(GOLD,(1-prog)*.25);
+      ctx.lineWidth = 1*(1-prog);
+      ctx.stroke();
+    }
+  }
+
+  /* ─── UPDATE STAR ─── */
+  function updateStar(s){
+    s.x+=s.vx; s.y+=s.vy;
+    const buf=10;
+    if(s.x<-buf)s.x=W+buf; if(s.x>W+buf)s.x=-buf;
+    if(s.y<-buf)s.y=H+buf; if(s.y>H+buf)s.y=-buf;
+  }
+
+  /* ─── UPDATE NODE ─── */
+  function updateNode(n){
+    /* mouse attraction — nodes gently gravitate toward cursor */
+    const dx=mouse.x-n.x, dy=mouse.y-n.y;
+    const d=Math.hypot(dx,dy);
+    if(d < CFG.attractDist && d > 0){
+      const strength = (1-d/CFG.attractDist)*CFG.attractForce;
+      n.vx += (dx/d)*strength;
+      n.vy += (dy/d)*strength;
+    }
+    /* dampen */
+    n.vx*=.982; n.vy*=.982;
+    /* speed cap */
+    const spd=Math.hypot(n.vx,n.vy);
+    const cap=CFG.nodeSpeed*2.5;
+    if(spd>cap){n.vx=(n.vx/spd)*cap; n.vy=(n.vy/spd)*cap;}
+    n.x+=n.vx; n.y+=n.vy;
+    /* wrap */
+    const buf=25;
+    if(n.x<-buf)n.x=W+buf; if(n.x>W+buf)n.x=-buf;
+    if(n.y<-buf)n.y=H+buf; if(n.y>H+buf)n.y=-buf;
+  }
+
+  /* ─── MAIN LOOP ─── */
+  let raf, frame=0;
+  function loop(){
+    raf = requestAnimationFrame(loop);
+    frame++;
+    ctx.clearRect(0,0,W,H);
+
+    /* 1. deep stars */
+    stars.forEach(s=>{ updateStar(s); drawStar(s,frame); });
+
+    /* 2. links */
+    drawLinks(frame);
+
+    /* 3. data-flow pulses */
+    if(frame % CFG.flowInterval === 0){
+      const f = spawnFlow(); if(f) flowPulses.push(f);
+    }
+    flowPulses = flowPulses.filter(f=>{
+      f.t += .022;
+      drawFlow(f);
+      return f.t < 1;
+    });
+
+    /* 4. mid nodes */
+    nodes.forEach(n=>{ updateNode(n); drawNode(n,frame); });
+
+    /* 5. shooting stars */
+    if(frame % CFG.shootInterval === 0) shooters.push(spawnShooter());
+    shooters = shooters.filter(s=>{
+      s.life++;
+      s.x+=s.vx; s.y+=s.vy;
+      drawShooter(s);
+      return s.life < s.maxLife && s.x<W+200 && s.y<H+100;
+    });
+
+    /* 6. ripples */
+    ripples = ripples.filter(r=>{
+      r.life++;
+      drawRipple(r);
+      return r.life < r.maxLife;
+    });
+  }
+
+  /* ─── EVENTS ─── */
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mousemove', e=>{
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+  },{passive:true});
+  hero.addEventListener('mouseleave',()=>{ mouse.x=-9999; mouse.y=-9999; mouse.active=false; },{passive:true});
+  hero.addEventListener('click', e=>{
+    const rect = canvas.getBoundingClientRect();
+    ripples.push({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+      life:0, maxLife:55, maxRadius:120,
+    });
+  },{passive:true});
+
+  /* resize */
+  const obs = new ResizeObserver(()=>init());
+  obs.observe(hero);
+
+  /* pause when hidden */
+  document.addEventListener('visibilitychange',()=>{
+    document.hidden ? cancelAnimationFrame(raf) : loop();
+  });
+
+  init();
+  loop();
+})();
+
+/* ── TICKER DATA ──── */
+const competencies = [
+  {label:"UX Strategy",val:"20+ Yrs"},
+  {label:"Design Leadership",val:"Team of 35"},
+  {label:"Maritime Digital",val:"Domain Expert"},
+  {label:"AI-Driven UX",val:"Active"},
+  {label:"Design Systems",val:"Enterprise"},
+  {label:"User Research",val:"Mixed Method"},
+  {label:"Mobile Design",val:"iOS + Android"},
+  {label:"Accessibility",val:"WCAG 2.1 AA"},
+  {label:"Agile",val:"Embedded"},
+  {label:"Stakeholders",val:"C-Level"},
+  {label:"Design Thinking",val:"IBM Certified"},
+  {label:"Products",val:"18+ Shipped"},
+];
+(function buildTicker(){
+  const track = document.getElementById('tickerTrack');
+  if(!track) return;
+  [...competencies,...competencies].forEach(c=>{
+    const el = document.createElement('div');
+    el.className = 'ticker-row';
+    el.innerHTML = `<span class="ticker-row-label">${c.label}</span><span class="ticker-row-val">${c.val}</span>`;
+    track.appendChild(el);
+  });
+})();
+
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);} });
+},{threshold:.1});
+reveals.forEach(el=>ro.observe(el));
+
+/* ── PROGRESS BAR ── */
+const prog = document.getElementById('progress');
+const navEl = document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  prog.style.width = pct + '%';
+  navEl.classList.toggle('scrolled', window.scrollY > 40);
+},{passive:true});
+
+/* ── THEME TOGGLE ── */
+let dark = true;
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  dark = !dark;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
+});
+
+/* ── CASE STUDY TABS ── */
+document.querySelectorAll('.cs-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    const cs = tab.dataset.cs;
+    const panel = tab.dataset.panel;
+    // deactivate all tabs in this card
+    tab.closest('.cs-tabs').querySelectorAll('.cs-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    // hide all panels in this card
+    tab.closest('.cs-card').querySelectorAll('.cs-panels').forEach(p=>{p.style.display='none';p.classList.remove('active')});
+    // show target panel
+    const target = document.getElementById(`${cs}-${panel}`);
+    if(target){target.style.display='grid';target.classList.add('active');}
+  });
+});
+
+/* ── SMOOTH ANCHORS ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+/* ── MOBILE HAMBURGER ── */
+document.getElementById('ham').addEventListener('click',()=>{
+  const links = document.querySelector('.nav-links');
+  const open = links.style.display === 'flex';
+  links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(7,12,24,.98);padding:28px 32px;gap:24px;z-index:99;backdrop-filter:blur(24px)';
+  if(!open) links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.style.cssText='';},{once:true}));
+});
+</script>
+</body>
+</html>
