@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Abdul Saleem B — Design Director & UX Leader</title>
+<title>Abdul Saleem B — UI/UX Team Leader</title>
 <meta name="description" content="Abdul Saleem B — Design Director with 20 years leading enterprise UX teams. Specialist in AI-driven maritime platforms, design systems, and scaling design organisations."/>
+<link rel="canonical" href="https://abdulsaleem.design/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://abdulsaleem.design/"/>
+<meta property="og:title" content="Abdul Saleem B — Design Director & UX Leader"/>
+<meta property="og:description" content="20 years leading enterprise UX teams. AI-driven maritime platforms, design systems, scaling design organisations at global scale."/>
+<meta property="og:image" content="https://abdulsaleem.design/og-cover.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Abdul Saleem B — Design Director & UX Leader"/>
+<meta name="twitter:description" content="20 years leading enterprise UX. Maritime AI platforms, design systems, 35-person design org."/>
+<meta name="twitter:image" content="https://abdulsaleem.design/og-cover.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
@@ -42,6 +52,10 @@
   --ease:        cubic-bezier(0.4,0,0.2,1);
   --r:           14px;
   --r-lg:        22px;
+  /* ticker panel */
+  --ticker-bg:       rgba(12,18,32,0.92);
+  --ticker-hd-bg:    rgba(12,18,32,0.98);
+  --ticker-fade-rgb: 12,18,32;
 }
 [data-theme="light"] {
   --bg:        #F5F6FA;
@@ -52,6 +66,15 @@
   --text-1:    #0A0F1E;
   --text-2:    #4A5568;
   --text-3:    #8892A4;
+  /* ticker panel overrides */
+  --ticker-bg:       rgba(255,255,255,0.92);
+  --ticker-hd-bg:    rgba(255,255,255,0.98);
+  --ticker-fade-rgb: 238,240,247;
+}
+
+[data-theme="light"] .ticker-row-val{
+  background:rgba(21,87,255,.1);
+  color:var(--blue);
 }
 
 /* ── RESET ── */
@@ -69,7 +92,14 @@ img{max-width:100%;display:block}
 
 /* ── LAYOUT ── */
 .wrap{max-width:1160px;margin:0 auto;padding:0 48px}
-section{padding:100px 0}
+section{padding:100px 0;scroll-margin-top:80px}
+
+/* ── ACTIVE NAV LINK ── */
+.nav-links a.nav-active{opacity:1;color:var(--gold)}
+.nav-links a.nav-active::after{
+  content:'';display:block;height:2px;border-radius:1px;
+  background:var(--gold);margin-top:2px;
+}
 
 /* ── TYPE SCALE ── */
 .serif-xl{font-family:var(--display);font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.08;letter-spacing:-0.01em}
@@ -264,10 +294,11 @@ nav.scrolled{background:rgba(7,12,24,.95);backdrop-filter:blur(24px);-webkit-bac
 }
 .hero-stat-item{
   padding-right:36px;
-  margin-right:36px;
+  padding-left:36px;
   border-right:1px solid var(--border);
 }
-.hero-stat-item:last-child{padding-right:0;margin-right:0;border-right:none}
+.hero-stat-item:first-child{padding-left:0}
+.hero-stat-item:last-child{padding-right:0;border-right:none}
 .stat-num{font-family:var(--display);font-size:1.9rem;line-height:1;letter-spacing:-.02em;margin-bottom:4px}
 .stat-num sup{font-size:.95rem;font-style:normal;vertical-align:super}
 .stat-label{font-size:.68rem;color:var(--text-2);font-family:var(--mono);letter-spacing:.04em}
@@ -275,7 +306,7 @@ nav.scrolled{background:rgba(7,12,24,.95);backdrop-filter:blur(24px);-webkit-bac
 /* ── TICKER PANEL ── preserved design, fixed height & alignment */
 .ticker-panel{
   position:relative;
-  background:rgba(12,18,32,.92);
+  background:var(--ticker-bg);
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
   border:1px solid var(--border-mid);
@@ -288,12 +319,12 @@ nav.scrolled{background:rgba(7,12,24,.95);backdrop-filter:blur(24px);-webkit-bac
 }
 .ticker-panel::before{
   content:'';position:absolute;top:0;left:0;right:0;height:52px;
-  background:linear-gradient(to bottom,rgba(12,18,32,1),transparent);
+  background:linear-gradient(to bottom,rgb(var(--ticker-fade-rgb)),transparent);
   z-index:2;pointer-events:none;
 }
 .ticker-panel::after{
   content:'';position:absolute;bottom:0;left:0;right:0;height:52px;
-  background:linear-gradient(to top,rgba(12,18,32,1),transparent);
+  background:linear-gradient(to top,rgb(var(--ticker-fade-rgb)),transparent);
   z-index:2;pointer-events:none;
 }
 .ticker-hd{
@@ -304,7 +335,7 @@ nav.scrolled{background:rgba(7,12,24,.95);backdrop-filter:blur(24px);-webkit-bac
   border-bottom:1px solid var(--border);
   flex-shrink:0;
   position:relative;z-index:5;
-  background:rgba(12,18,32,.98);
+  background:var(--ticker-hd-bg);
 }
 .ticker-live{display:flex;align-items:center;gap:6px;color:var(--blue-lt);font-size:.63rem}
 .ticker-live-dot{width:5px;height:5px;border-radius:50%;background:#22c55e;animation:blink 1.5s infinite;flex-shrink:0}
@@ -318,7 +349,7 @@ nav.scrolled{background:rgba(7,12,24,.95);backdrop-filter:blur(24px);-webkit-bac
 @keyframes scrollUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
 .ticker-row{
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,255,255,.03);
+  background:var(--surface-2);
   border:1px solid var(--border);
   border-radius:10px;
   padding:10px 14px;
@@ -606,7 +637,7 @@ section#numbers{
 .screen-caption{
   position:absolute;bottom:0;left:0;right:0;
   padding:10px 14px;
-  background:linear-gradient(to top,rgba(7,12,24,.92) 60%,transparent);
+  background:linear-gradient(to top,rgb(var(--ticker-fade-rgb)) 60%,transparent);
   font-size:.65rem;color:var(--text-2);font-family:var(--mono);
   line-height:1.4;
 }
@@ -774,7 +805,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
   .hero-stats{gap:0;flex-wrap:wrap}
   .hero-stat-item{
     padding-right:24px;
-    margin-right:24px;
+    padding-left:24px;
     margin-bottom:0;
   }
   .about-metrics{grid-template-columns:1fr 1fr}
@@ -795,8 +826,8 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
   .hero-stats{flex-direction:row;flex-wrap:wrap;gap:0}
   .hero-stat-item{
     width:50%;
+    padding-left:0;
     padding-right:0;
-    margin-right:0;
     border-right:none;
     border-bottom:1px solid var(--border);
     padding-bottom:16px;
@@ -877,7 +908,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
         <div class="hero-ctas reveal d3">
           <a href="#work" class="btn btn-primary btn-lg">View Case Studies</a>
           <a href="mailto:saleem.abd@gmail.com" class="btn btn-outline btn-lg">Let's Talk</a>
-          <a href="#" class="btn btn-outline btn-lg" onclick="alert('Replace with your resume PDF')">Resume ↓</a>
+          <a href="Abdul Saleem - UIUX Team Lead - 15+ Years Experience - AI-Driven Design Leader.pdf" class="btn btn-outline btn-lg" target="_blank" >Resume ↓</a>
         </div>
         <div class="hero-stats reveal d4">
           <div class="hero-stat-item">
@@ -922,19 +953,19 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
       </div>
       <div class="about-metrics reveal d2">
         <div class="metric-block">
-          <div class="metric-big"><span>35</span></div>
+          <div class="metric-big"><span style="color:var(--blue)">35</span></div>
           <div class="metric-tag">Designers currently led</div>
         </div>
         <div class="metric-block">
-          <div class="metric-big"><span>200+</span></div>
+          <div class="metric-big"><span style="color:var(--gold)">200+</span></div>
           <div class="metric-tag">Design system components</div>
         </div>
         <div class="metric-block">
-          <div class="metric-big"><span>18+</span></div>
+          <div class="metric-big"><span style="color:var(--gold)">18+</span></div>
           <div class="metric-tag">Products delivered</div>
         </div>
         <div class="metric-block">
-          <div class="metric-big"><span>7</span></div>
+          <div class="metric-big"><span style="color:var(--blue)">7</span></div>
           <div class="metric-tag">Organisations across career</div>
         </div>
       </div>
@@ -1047,6 +1078,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
         <div class="cs-panels" id="cs1-screens" style="display:none">
           <div class="cs-screens">
             <span class="cs-section-label cs-screens-label">Platform Screens — Illustrative Mockups</span>
+            <p style="font-size:.72rem;color:var(--text-3);font-family:var(--mono);margin-top:-12px;margin-bottom:20px;letter-spacing:.03em">Representational only · Client NDA applies to production assets</p>
             <div class="screens-grid g3">
               <!-- Screen 1: Dashboard (tall) -->
               <div class="screen-frame tall">
@@ -1191,9 +1223,9 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
     <!-- ─── CASE STUDY 2: Inspection Management Mobile ─── -->
     <div class="cs reveal">
       <div class="cs-card">
-        <div class="cs-tabs">
-          <button class="cs-tab active" data-cs="cs2" data-panel="overview">Overview</button>
-          <button class="cs-tab" data-cs="cs2" data-panel="screens">Screens</button>
+        <div class="cs-tabs" role="tablist">
+          <button class="cs-tab active" role="tab" data-cs="cs2" data-panel="overview">Overview</button>
+          <button class="cs-tab" role="tab" data-cs="cs2" data-panel="screens">Screens</button>
         </div>
         <div class="cs-panels active" id="cs2-overview">
           <div class="cs-overview">
@@ -1252,6 +1284,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
         <div class="cs-panels" id="cs2-screens" style="display:none">
           <div class="cs-screens">
             <span class="cs-section-label cs-screens-label">Mobile App Screens — Illustrative Mockups</span>
+            <p style="font-size:.72rem;color:var(--text-3);font-family:var(--mono);margin-top:-12px;margin-bottom:20px;letter-spacing:.03em">Representational only · Client NDA applies to production assets</p>
             <div class="screens-grid g4">
               <!-- Mobile frame 1: App home -->
               <div class="screen-frame">
@@ -1408,9 +1441,9 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
     <!-- ─── CASE STUDY 3: Enterprise Design System ─── -->
     <div class="cs reveal">
       <div class="cs-card">
-        <div class="cs-tabs">
-          <button class="cs-tab active" data-cs="cs3" data-panel="overview">Overview</button>
-          <button class="cs-tab" data-cs="cs3" data-panel="screens">Screens</button>
+        <div class="cs-tabs" role="tablist">
+          <button class="cs-tab active" role="tab" data-cs="cs3" data-panel="overview">Overview</button>
+          <button class="cs-tab" role="tab" data-cs="cs3" data-panel="screens">Screens</button>
         </div>
         <div class="cs-panels active" id="cs3-overview">
           <div class="cs-overview">
@@ -1469,6 +1502,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
         <div class="cs-panels" id="cs3-screens" style="display:none">
           <div class="cs-screens">
             <span class="cs-section-label cs-screens-label">Design System Documentation — Illustrative Screens</span>
+            <p style="font-size:.72rem;color:var(--text-3);font-family:var(--mono);margin-top:-12px;margin-bottom:20px;letter-spacing:.03em">Representational only · Client NDA applies to production assets</p>
             <div class="screens-grid g3">
               <!-- Component library -->
               <div class="screen-frame tall">
@@ -1684,12 +1718,11 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
       <div class="contact-ctas reveal d3">
         <a href="mailto:saleem.abd@gmail.com" class="btn btn-primary btn-lg">saleem.abd@gmail.com</a>
         <a href="https://www.linkedin.com/in/saleemabd/" target="_blank" rel="noopener" class="btn btn-outline btn-lg">LinkedIn ↗</a>
-        <a href="#" class="btn btn-outline btn-lg" onclick="alert('Replace with resume PDF link')">Resume ↓</a>
+        <a href="Abdul Saleem - UIUX Team Lead - 15+ Years Experience - AI-Driven Design Leader.pdf" class="btn btn-outline btn-lg" target="_blank" >Resume ↓</a>
       </div>
       <div class="contact-links reveal d4">
         <a href="tel:+919944159845" class="c-link"><span class="c-link-icon">📱</span> +91 99441 59845</a>
         <a href="mailto:saleem.abd@gmail.com" class="c-link"><span class="c-link-icon">✉️</span> saleem.abd@gmail.com</a>
-    
       </div>
     </div>
   </div>
@@ -1759,6 +1792,9 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
 
   function rnd(a,b){ return a + Math.random()*(b-a); }
   function rgba(c,a){ return `rgba(${c[0]},${c[1]},${c[2]},${a})`; }
+  function isLight(){ return document.documentElement.getAttribute('data-theme')==='light'; }
+  /* opacity multiplier — particles need to be darker/stronger in light mode to be visible */
+  function opMul(){ return isLight() ? 3.5 : 1; }
 
   /* ─── STARS (deep, slow, no links) ─── */
   let stars = [];
@@ -1810,7 +1846,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
     const breathe = .7 + .3*Math.sin(t*s.phSpd + s.phase);
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
-    ctx.fillStyle = rgba(s.col, s.op * breathe);
+    ctx.fillStyle = rgba(s.col, Math.min(1, s.op * breathe * opMul()));
     ctx.fill();
   }
 
@@ -1819,13 +1855,14 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
     const breathe = n.isPulse
       ? .55 + .45*Math.sin(t*n.phSpd + n.phase)
       : 1;
-    const op = n.op * breathe;
+    const mul = opMul();
+    const op = Math.min(1, n.op * breathe * mul);
 
     if(n.isPulse){
       /* glow rings — two halos */
       const g = ctx.createRadialGradient(n.x,n.y,0, n.x,n.y, n.r*8);
-      g.addColorStop(0,   rgba(n.col, op*.35));
-      g.addColorStop(0.4, rgba(n.col, op*.12));
+      g.addColorStop(0,   rgba(n.col, Math.min(1, op*.35*mul)));
+      g.addColorStop(0.4, rgba(n.col, Math.min(1, op*.12*mul)));
       g.addColorStop(1,   rgba(n.col, 0));
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r*8, 0, Math.PI*2);
@@ -1834,7 +1871,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
 
       /* mid ring */
       const g2 = ctx.createRadialGradient(n.x,n.y,0, n.x,n.y, n.r*3.5);
-      g2.addColorStop(0,   rgba(n.col, op*.6));
+      g2.addColorStop(0,   rgba(n.col, Math.min(1, op*.6*mul)));
       g2.addColorStop(1,   rgba(n.col, 0));
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r*3.5, 0, Math.PI*2);
@@ -1851,6 +1888,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
 
   /* ─── DRAW LINKS ─── */
   function drawLinks(t){
+    const mul = opMul();
     for(let i=0;i<nodes.length;i++){
       for(let j=i+1;j<nodes.length;j++){
         const a=nodes[i], b=nodes[j];
@@ -1858,7 +1896,7 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
         const dist=Math.hypot(dx,dy);
         if(dist < CFG.linkDist){
           const fade = 1 - dist/CFG.linkDist;
-          const op = CFG.linkOpacity * fade;
+          const op = Math.min(1, CFG.linkOpacity * fade * mul);
           /* line colour: gold if either node is gold */
           const isGold = (a.col===GOLD || b.col===GOLD);
           const lc = isGold ? GOLD : BLUELT;
@@ -2053,8 +2091,12 @@ footer{padding:26px 0;border-top:1px solid var(--border)}
     });
   },{passive:true});
 
-  /* resize */
-  const obs = new ResizeObserver(()=>init());
+  /* resize — debounced to avoid jank during drag */
+  let resizeTimer;
+  const obs = new ResizeObserver(()=>{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(()=>init(), 150);
+  });
   obs.observe(hero);
 
   /* pause when hidden */
@@ -2099,6 +2141,22 @@ const ro = new IntersectionObserver(entries=>{
 },{threshold:.1});
 reveals.forEach(el=>ro.observe(el));
 
+/* ── ACTIVE NAV HIGHLIGHTING ── */
+(function(){
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = document.querySelectorAll('section[id]');
+  const activate = id => {
+    navLinks.forEach(a=>{
+      const match = a.getAttribute('href') === '#'+id;
+      a.classList.toggle('nav-active', match);
+    });
+  };
+  const sectionObs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) activate(e.target.id); });
+  },{rootMargin:'-20% 0px -70% 0px', threshold:0});
+  sections.forEach(s=>sectionObs.observe(s));
+})();
+
 /* ── PROGRESS BAR ── */
 const prog = document.getElementById('progress');
 const navEl = document.getElementById('nav');
@@ -2126,9 +2184,9 @@ document.querySelectorAll('.cs-tab').forEach(tab=>{
     tab.classList.add('active');
     // hide all panels in this card
     tab.closest('.cs-card').querySelectorAll('.cs-panels').forEach(p=>{p.style.display='none';p.classList.remove('active')});
-    // show target panel
+    // show target panel — use block so inner grid/flex children handle their own layout
     const target = document.getElementById(`${cs}-${panel}`);
-    if(target){target.style.display='grid';target.classList.add('active');}
+    if(target){target.style.display='block';target.classList.add('active');}
   });
 });
 
@@ -2136,7 +2194,11 @@ document.querySelectorAll('.cs-tab').forEach(tab=>{
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const t = document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+    if(t){
+      e.preventDefault();
+      const offset = t.getBoundingClientRect().top + window.scrollY - 88;
+      window.scrollTo({top: offset, behavior:'smooth'});
+    }
   });
 });
 
@@ -2144,7 +2206,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 document.getElementById('ham').addEventListener('click',()=>{
   const links = document.querySelector('.nav-links');
   const open = links.style.display === 'flex';
-  links.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:rgba(7,12,24,.98);padding:28px 32px;gap:24px;z-index:99;backdrop-filter:blur(24px)';
+  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+  const menuBg = isDark ? 'rgba(7,12,24,.98)' : 'rgba(245,246,250,.98)';
+  links.style.cssText = open ? '' : `display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:${menuBg};padding:28px 32px;gap:24px;z-index:99;backdrop-filter:blur(24px)`;
   if(!open) links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.style.cssText='';},{once:true}));
 });
 </script>
